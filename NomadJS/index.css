@@ -77,6 +77,11 @@ ul {
   list-style: none;
 }
 
+ul > li {
+  text-align: left;
+  margin-left: 50px;
+}
+
 ul > li > button {
   margin-left: 6px;
   background-color: Transparent;
