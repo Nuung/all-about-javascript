@@ -50,6 +50,11 @@ input[type=text]:focus {
 
 /* others */
 
+.js-weather-status {
+  color: #f55f5f;
+  font-weight: 900;
+}
+
 .js-clock > h1 {
   font-size: 6rem;
 }

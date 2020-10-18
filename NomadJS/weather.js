@@ -1,4 +1,5 @@
 // Get Dom Object
+const weatherStatus = document.querySelector(".js-weather-status");
 const weather = document.querySelector(".js-weather-span");
 
 // static val
@@ -14,9 +15,12 @@ function getWeather(lat, lon) {
         return response.json()
     })
     .then(function(json) {
+        // console.log(json.weather[0].main);
+        const status = json.weather[0].main;
         const temp = json.main.temp;
         const place = json.name;
-        weather.innerText = `${temp} @ ${place}`;
+        weatherStatus.innerText = `It's ${status}!\n`
+        weather.innerText = `Temperature: ${temp} @ City: ${place}`;
     });
 }
 
