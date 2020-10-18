@@ -1,7 +1,7 @@
 const toDoForm = document.querySelector(".js-toDoForm"),
   toDoInput = toDoForm.querySelector("input"),
-  toDoList = document.querySelector(".js-toDoList");
-
+  toDoList = document.querySelector(".js-toDoList"),
+  toDoClear = document.querySelector("#js-toDoList-clear");
 const TODOS_LS = "toDos";
 
 let toDos = [];
@@ -58,9 +58,16 @@ function loadToDos() {
   }
 }
 
+function clearAllList(event) {
+  toDoList.innerHTML = "";
+  toDos = [];
+  localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
+}
+
 function init() {
   loadToDos();
   toDoForm.addEventListener("submit", handleSubmit);
+  toDoClear.addEventListener("click", clearAllList);
 }
 
 init();

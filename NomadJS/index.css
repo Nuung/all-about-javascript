@@ -33,12 +33,13 @@ body {
 input[type=text]{
   width: 80%;
   height: 40px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
   border: 1px solid #2d9fd9;
   color: #a0d18c;
   padding-left: 10px;
+
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
   }
   
 input[type=text]:focus {
@@ -55,6 +56,21 @@ input[type=text]:focus {
 
 .input-boxs {
   width: 50%;
+}
+
+.input-boxs > button {
+  background-color: #008CBA; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
 }
 
 ul {
