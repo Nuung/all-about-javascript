@@ -7,18 +7,25 @@
 </head>
 
 <body>
-    <div class="js-clock">
-        <h1>00:00</h1>
+    <div id="wrapper">
+        <div id="wrapper-inner">
+            <div class="js-weather">
+
+            </div>
+            <div class="js-clock"><h1></h1></div>
+            <div class="input-boxs">
+                <form class="js-form form">
+                    <input type="text" placeholder="What is your name?" />
+                </form>
+                </br>
+                <h4 class="js-greetings greetings"></h4>
+                <form class="js-toDoForm">
+                    <input type="text" placeholder="Write a to do" />
+                </form>
+                <ul class="js-toDoList"></ul>
+            </div>
+        </div>
     </div>
-    <form class="js-form form">
-        <input type="text" placeholder="What is your name?" />
-    </form>
-    <h4 class="js-greetings greetings"></h4>
-    <form class="js-toDoForm">
-        <input type="text" placeholder="Write a to do" />
-    </form>
-    <ul class="js-toDoList">
-    </ul>
     <script src="./NomadJS/clock.js"></script>
     <script src="./NomadJS/gretting.js"></script>
     <script src="./NomadJS/todo.js"></script>
