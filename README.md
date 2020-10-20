@@ -1,3 +1,7 @@
+<div style="text-align: center">
+    <img src="https://img.shields.io/badge/license-MIT-green" />
+</div>
+
 # JS Basics - Vanilla Javasciprt
 
 - Repository for the JS-Basics Nomad Academy Course. Cloning a Productivity App with VanillaJS
@@ -8,6 +12,7 @@
 - 바닐라JS 2주 완성반 챌린지 
     - [노마드 챌린지](https://nomadcoders.co/challenges)
     - 챌린지 결과물 : https://nuung.github.io/vanilla-javascript
+
 - 바닐라JS Simple Pop up (modal) screen in 5 min
     - [노마드 유튜브](https://youtu.be/V08wXKHF_Xw)
     - CSS 적인 요소가 더 크긴함! 뭐 굳이 핵심 JS 포인트는 classList / add / remove
