@@ -1,4 +1,4 @@
-<div style="text-align: center;">
+<div align = "center">
     <img src="https://img.shields.io/badge/license-MIT-green" />
 </div>
 
