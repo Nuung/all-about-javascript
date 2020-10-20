@@ -1,9 +1,9 @@
 <div align = "center">
     <img src="https://img.shields.io/badge/license-MIT-green" />
-    
-    [issues](https://img.shields.io/github/issues/Nuung/vanilla-javascript)
-    [forks](https://img.shields.io/github/forks/Nuung/vanilla-javascript)
-    [star](https://img.shields.io/github/stars/Nuung/vanilla-javascript)
+
+[issues](https://img.shields.io/github/issues/Nuung/vanilla-javascript)
+[forks](https://img.shields.io/github/forks/Nuung/vanilla-javascript)
+[star](https://img.shields.io/github/stars/Nuung/vanilla-javascript)
 </div>
 
 # JS Basics - Vanilla Javasciprt
