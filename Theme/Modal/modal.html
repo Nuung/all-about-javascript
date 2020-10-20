@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .wrapper-btn {
+            text-align: center;
+        }
+
+        button {
+            all: unset;
+            background-color: rgb(0, 161, 225);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 15%;
+            transition: background-color 0.5s ease-out;
+        }
+
+        button:hover { background-color: rgb(0, 103, 143); }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            /* 초기 display: none 처럼 크기를 0 으로 하여 보여주지 않음*/ 
+            transform: scale(0); 
+            /* 0.5 초 동안 애니메이션을 실행, 단 0.3초 지연시켜 0.3초 후에 애니메이션을 실행 */ 
+            animation: zoomIn .5s .3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        }
+
+        .modal_overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        .modal_content {
+            background-color: white;
+            padding: 50px 100px;
+            text-align: center;
+            position: relative;
+            top: 0px;
+            border-radius: 10px;
+            width: 15%;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Show modal content */ 
+        @keyframes zoomIn { 
+            from { transform: scale(0); } 
+            to { transform: scale(1); } 
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper-btn">
+        <button id="modal_open"> OPEN THE MODAL </button>
+    </div>
+    <div class="modal hidden">
+        <div class="modal_overlay"></div>
+        <div class="modal_content">
+            <h1>I'm a modal</h1>
+            <button>❌</button>
+        </div>
+    </div>
+    <script>
+        const openBtn = document.getElementById("modal_open");
+        const modal = document.querySelector(".modal");
+        const overlay = modal.querySelector(".modal_overlay");
+        const closeBtn = modal.querySelector("button");
+
+        const openModal = () => {
+            modal.classList.add("transition");
+            modal.classList.remove("hidden");
+        };
+        const closeModal = () => {
+            modal.classList.remove("transition");
+            modal.classList.add("hidden");
+        };
+
+        overlay.addEventListener("click", closeModal);
+        closeBtn.addEventListener("click", closeModal);
+        openBtn.addEventListener("click", openModal);
+    </script>
+</body>
+</html>
