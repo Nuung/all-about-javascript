@@ -24,7 +24,6 @@
     - [노마드 유튜브](https://youtu.be/V08wXKHF_Xw)
     - CSS 적인 요소가 더 크긴함! 뭐 굳이 핵심 JS 포인트는 classList / add / remove
     ```javascript
-        
         DomObj.classList.add("CLASS");
         DomObj.classList.remove("CLASS");
         
@@ -32,7 +31,6 @@
         $('.toggle-me').click( function() {
             $(this).toggleClass('active');
         });
-
     ```
     - [코드 보러 가기](https://github.com/Nuung/vanilla-javascript/blob/master/Theme/Modal/modal.html)
     - [실물 영접 하기](https://nuung.github.io/vanilla-javascript/Theme/Modal/modal.html )
