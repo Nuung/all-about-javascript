@@ -9,6 +9,7 @@
 # JS Basics - Vanilla Javasciprt
 
 > Repository for the JS-Basics Nomad Academy Course. Cloning a Productivity App with VanillaJS
+> And study space for javascript based on ES6
 
 
 
