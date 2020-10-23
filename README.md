@@ -8,7 +8,7 @@
 
 # JS Basics - Vanilla Javasciprt
 
-- Repository for the JS-Basics Nomad Academy Course. Cloning a Productivity App with VanillaJS
+> Repository for the JS-Basics Nomad Academy Course. Cloning a Productivity App with VanillaJS
 
 
 
