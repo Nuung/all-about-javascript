@@ -20,7 +20,7 @@
 - 바닐라JS 2주 완성반 챌린지 CLEAR!
     - [노마드 챌린지](https://nomadcoders.co/challenges)
     - 챌린지 결과물 : https://nuung.github.io/vanilla-javascript
-    - <div align = center><img src="https://github.com/Nuung/vanilla-javascript/blob/master/NomadJS/images/clear.png" /></div>
+    - <div align = center><img src="https://github.com/Nuung/vanilla-javascript/blob/master/NomadJS/images/clear.png" width="50%"/></div>
 
 - 바닐라JS Simple Pop up (modal) screen in 5 min
     - [노마드 유튜브](https://youtu.be/V08wXKHF_Xw)
