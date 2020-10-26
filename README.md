@@ -17,9 +17,10 @@
 
 
 ## Nomad Coders : Challenges
-- 바닐라JS 2주 완성반 챌린지 
+- 바닐라JS 2주 완성반 챌린지 CLEAR!
     - [노마드 챌린지](https://nomadcoders.co/challenges)
     - 챌린지 결과물 : https://nuung.github.io/vanilla-javascript
+    - <div align = center><img src="https://github.com/Nuung/vanilla-javascript/blob/master/NomadJS/images/1.jpg" /></div>
 
 - 바닐라JS Simple Pop up (modal) screen in 5 min
     - [노마드 유튜브](https://youtu.be/V08wXKHF_Xw)
@@ -34,7 +35,7 @@
         });
     ```
     - [코드 보러 가기](https://github.com/Nuung/vanilla-javascript/blob/master/Theme/Modal/modal.html)
-    - [실물 영접 하기](https://nuung.github.io/vanilla-javascript/Theme/Modal/modal.html )
+    - [실물 영접 하기](https://nuung.github.io/vanilla-javascript/Theme/Modal/modal.html)
 
 ## 바닐라 자바 스크립트
 - ES6 공부 및 아주 기초부터 고급까지 바닐라 자바스크립트 실습 기반 연습 아카이브
