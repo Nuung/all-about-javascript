@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div class="js-clock">
+      <h1>Time Until Christmas</h1>
+      <h2 class="js-title">00:00</h1>
+    </div>
+    <script>
+        // You're gonna need this
+        // const NINE_HOURS_MILLISECONDS = 32400000;
+        const clockContainer = document.querySelector(".js-clock");
+        const clockTitle = clockContainer.querySelector(".js-title");
+
+        function getTime() {
+            // Don't delete this.
+            const now = new Date().getTime();
+            const xmasDay = new Date("2020-12-24:00:00:00+0900").getTime();
+            const distance = xmasDay - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor(
+                (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+            );
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            clockTitle.innerText = `${
+                days < 10 ? `0${days}` : days}d ${
+                hours < 10 ? `0${hours}` : hours}h ${
+                minutes < 10 ? `0${minutes}` : minutes}m ${
+                seconds < 10 ? `0${seconds}` : seconds}s`;
+        }
+
+        function init() {
+            getTime();
+            setInterval(getTime, 1000);
+        }
+        init();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Random Number Game</title>
+    <meta charset="UTF-8" />
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        #set-range {
+            width: 50%;
+        }
+
+        .won {
+            color: #ff69b4;
+        }
+
+        #num-history {
+            list-style: none;
+        }
+    </style>
+  </head>
+
+  <body>
+      <h1>Random Number Game</h1>
+      <h3>
+        <div>
+          <span id="end-num"></span></br>
+          <input type="range" list="tickmarks" id="set-range" name="volume" min="0" max="210" step="1" />
+          <datalist id="tickmarks">
+              <option value="0" label="0"></option>
+              <option value="30"></option>
+              <option value="60"></option>
+              <option value="90"></option>
+              <option value="120"></option>
+              <option value="150"></option>
+              <option value="180"></option>
+              <option value="210" label="210"></option>
+          </datalist>
+        </div>
+        <div>
+            Guess the Number: 
+            <input type="text" placeholder="input a number" id="guess-num"/>
+            <input type="button" id="guess-btn" value="Play!"/></br></br>
+            <span id="guess-result"></span>
+        </div>
+        <h2 id="guess-result-txt"></h2>
+        <ul id="num-history">
+          Number History What u chose!
+        </ul>
+      </h3>
+    <script>
+        const endNum = document.querySelector("#end-num");
+        const setRange = document.querySelector("#set-range");
+        const guessNum = document.querySelector("#guess-num");
+        const guessBtn = document.querySelector("#guess-btn");
+        const guessResult = document.querySelector("#guess-result");
+        const guessResultTxt = document.querySelector("#guess-result-txt");
+
+        const historyUl = document.querySelector("#num-history");
+        const history = [];
+
+        function handleRange(event) {
+            endNum.innerText = `Generate a number between 0 and ${setRange.value}`;
+        }
+
+        function handleInputValue(event) {
+            const machine = Math.floor(Math.random() * setRange.value) + 1; // returns a random integer from 1 to 100
+            guessResult.innerText = `You chose: ${guessNum.value}, the machine chose: ${machine}`;
+            // console.log(typeof guessNum.value, typeof machine);
+
+            if (parseInt(guessNum.value) === machine) {
+                if (!guessResultTxt.classList.contains("won")) 
+                    guessResultTxt.classList.add("won");
+                
+                guessResultTxt.innerText = "You Won!!";
+                createLi("won", machine);
+            } else {
+                if (guessResultTxt.classList.contains("won"))
+                    guessResultTxt.classList.remove("won");
+                    
+                guessResultTxt.innerText = "You Lost!!";
+                createLi("lost", machine);
+            }
+        }
+
+        function createLi(status, number) {
+            // editing history
+            let tempLi = document.createElement("li");
+            tempLi.innerText = `You : ${guessNum.value}, Machine: ${number}, ${status}`;
+            historyUl.appendChild(tempLi);
+        }
+
+        function init() {
+            endNum.innerText = `Generate a number between 0 and ${setRange.value}`;
+            setRange.addEventListener("input", handleRange);
+            setRange.addEventListener("change", handleRange);
+            guessBtn.addEventListener("click", handleInputValue);
+        }
+
+        init();
+
+    </script>
+  </body>
+</html>
