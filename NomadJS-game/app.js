@@ -15,15 +15,20 @@ const brushSize = document.getElementById("jsRange");
 // interaction BTN
 const jsReset = document.getElementById("jsReset");
 const jsMode = document.getElementById("jsMode");
+// canvas는 png파일로 바로 저장할 수 있는 기적이 있다!
+const jsSave = document.getElementById("jsSave"); 
 
 // size를 꼭 줘야한다! 
 canvas.width = config.CANVAS_SIZE; 
 canvas.height = config.CANVAS_SIZE;
-
-// context setting (config)
-ctx.strokeStyle = config.INITIAL_COLOR;
-ctx.fillStyle = config.INITIAL_COLOR;
-ctx.lineWidth = 2.5; // line Width는 굵기다 
+const initConfigSetting = () => {
+    // context setting (config)
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, config.CANVAS_SIZE, config.CANVAS_SIZE);
+    ctx.strokeStyle = config.INITIAL_COLOR;
+    ctx.fillStyle = config.INITIAL_COLOR;
+    ctx.lineWidth = 2.5; // line Width는 굵기다 
+}
 
 // others
 let painting = false; // mouse click status
@@ -61,6 +66,7 @@ const handleColorClick = (event) =>  {
 // change brush size
 const handleRangeChange = (event) => ctx.lineWidth = event.target.value;
 
+// fill and paint mode change button
 const handleModeClick = (event) => {
     if(filling === true) {
         filling = false;
@@ -82,8 +88,21 @@ const handleModeToggleAction = () => {
     jsMode.classList.toggle("paint_mode");
 }
 
+// paint! click! event! on canvas
 const handleCanvasClick = () => {
     if(filling) ctx.fillRect(0, 0, config.CANVAS_SIZE, config.CANVAS_SIZE);
+}
+
+// save button action
+const handleCM = (event) => event.preventDefault(); // 우클릭 방지가 된다! 
+const handleSaveClick = (event) => {
+    const image = canvas.toDataURL("image/png"); // 코드 형태로
+    // temp 앵커 태그를 만들어서 attribute 세팅하고 click 액션을 만들자! 
+    const link = document.createElement("a");
+    link.href = image;
+    link.download = "paintJS[EXPORT]";
+    link.click();
+    console.log(event);
 }
 
 const initMain = () => {
@@ -98,6 +117,8 @@ const initMain = () => {
         canvas.addEventListener("mouseleave", stopPainting); 
         // 채우기 액션을 위한 canvas click event
         canvas.addEventListener("click", handleCanvasClick);
+        // 우클릭 방지하기모띠
+        canvas.addEventListener("contextmenu", handleCM);
     }
 
     // color button obj
@@ -117,20 +138,19 @@ const initMain = () => {
     // action button obj
     if(jsReset) {
         jsReset.addEventListener("click", () => {
-            ctx.strokeStyle = config.INITIAL_COLOR;
-            ctx.fillStyle = config.INITIAL_COLOR;
-            ctx.lineWidth = 2.5;
+            initConfigSetting();
             brushSize.value = 2.5; // range input value change
             // console.log();
         })
     }
-
-    if(jsMode) {
-        jsMode.addEventListener("click", handleModeClick)
+    if(jsMode) jsMode.addEventListener("click", handleModeClick);
+    if(jsSave) {
+        jsSave.addEventListener("click", handleSaveClick);
     }
 }
 
 //-----------------------------------------------------------//
-// main area
+// setup env val AND main area
 
+initConfigSetting();
 initMain();
