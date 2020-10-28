@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic of To Do List</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <form class="js-toDoForm">
+        <input type="text" placeholder="Add Task" />
+    </form>
+    <ul class="js-toDoList">
+      <h1>Pending</h1>
+    </ul>
+    <ul class="js-finishList">
+        <h1>Finished</h1>
+    </ul>
+
+    <script>
+        // basic js to make to do list action with localStorage
+
+        const toDoForm = document.querySelector(".js-toDoForm"),
+        toDoInput = toDoForm.querySelector("input"),
+        toDoList = document.querySelector(".js-toDoList"),
+        toFinList = document.querySelector(".js-finishList");
+
+        let Pending = [];
+        let Finished = [];
+
+        function finToDo(event) {
+            const targetLi = event.target.parentNode;
+            // check out the L-S
+            let cleanPending = Pending.filter(function (toDo) {
+                return toDo.id.toString() !== targetLi.id;
+            });
+            let cleanFinishing = Pending.filter(function (toDo) {
+                return toDo.id.toString() === targetLi.id;
+            });
+
+            Pending = cleanPending;
+            const targetId = targetLi.id.split("Pending");
+
+            cleanFinishing.forEach((element) => {
+                element.id = "Finished" + targetId[1];
+            });
+            Finished.push(cleanFinishing[0]);
+            updateToDos(cleanFinishing);
+
+            // update the DOM
+            toDoList.removeChild(targetLi);
+            targetLi.removeChild(event.target);
+            const clearBtn = document.createElement("button");
+            clearBtn.innerText = "✅";
+            targetLi.append(clearBtn);
+
+            // set id again
+            targetLi.id = "Finished" + targetId[1];
+            toFinList.append(targetLi);
+        }
+
+        function deleteToDo(event) {
+            const targetLi = event.target.parentNode;
+            if (targetLi.id.includes("Pending")) {
+                toDoList.removeChild(targetLi);
+                let cleanToDos = Pending.filter(function (toDo) {
+                    return toDo.id.toString() !== targetLi.id;
+                });
+                Pending = cleanToDos; // update static toDos array
+            } else {
+                toFinList.removeChild(targetLi);
+                let cleanToDos = Finished.filter(function (toDo) {
+                    if (typeof toDo.id === "string") return toDo.id !== targetLi.id;
+                    else return toDo.id.toString() !== targetLi.id;
+                });
+                Finished = cleanToDos; // update static toDos array
+            }
+            updateToDos();
+        }
+
+        function updateToDos() {
+            localStorage.setItem("Pending", JSON.stringify(Pending));
+            localStorage.setItem("Finished", JSON.stringify(Finished));
+        }
+
+        function paintToDo(text, isPending) {
+            if (isPending) {
+                const li = document.createElement("li");
+                const delBtn = document.createElement("button");
+                const finBtn = document.createElement("button");
+                const span = document.createElement("span");
+                const newId = "Pending" + (Pending.length + 1);
+
+                // adding info and text
+                delBtn.innerText = "❌";
+                finBtn.innerText = "✔️";
+
+                // adding event to btn
+                delBtn.addEventListener("click", deleteToDo);
+                finBtn.addEventListener("click", finToDo);
+
+                span.innerText = text + "\t";
+                li.appendChild(span);
+                li.appendChild(delBtn);
+                li.appendChild(finBtn);
+                li.id = newId;
+                toDoList.appendChild(li);
+
+                // add that obj to static obj "toDos"
+                const toDoObj = {
+                text: text,
+                id: newId
+                };
+                Pending.push(toDoObj);
+                localStorage.setItem("Pending", JSON.stringify(Pending));
+            } 
+            else {
+                const li = document.createElement("li");
+                const delBtn = document.createElement("button");
+                const finBtn = document.createElement("button");
+                const span = document.createElement("span");
+                const newId = "Finished" + (Finished.length + 1);
+
+                // adding info and text
+                delBtn.innerText = "❌";
+                finBtn.innerText = "✅";
+
+                // adding event to btn
+                delBtn.addEventListener("click", deleteToDo);
+
+                span.innerText = text + "\t";
+                li.appendChild(span);
+                li.appendChild(delBtn);
+                li.appendChild(finBtn);
+                li.id = newId;
+                toFinList.appendChild(li);
+
+                // add that obj to static obj "toDos"
+                const toDoObj = {
+                text: text,
+                id: newId
+                };
+                Finished.push(toDoObj);
+                localStorage.setItem("Finished", JSON.stringify(Finished));
+            }
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const currentValue = toDoInput.value;
+            paintToDo(currentValue, true);
+            toDoInput.value = "";
+        }
+
+        function loadToDos() {
+            const loadedPending = localStorage.getItem("Pending");
+            const loadedFinished = localStorage.getItem("Finished");
+
+            if (loadedPending !== null) {
+                const parsedPending = JSON.parse(loadedPending);
+                parsedPending.forEach((toDo) => {
+                paintToDo(toDo.text, true);
+                });
+            }
+
+            if (loadedFinished !== null) {
+                const parsedFinished = JSON.parse(loadedFinished);
+                parsedFinished.forEach((toDo) => {
+                paintToDo(toDo.text, false);
+                });
+            }
+        }
+
+        function init() {
+            loadToDos();
+            toDoForm.addEventListener("submit", handleSubmit);
+        }
+
+        init();
+    </script>
+  </body>
+</html>
