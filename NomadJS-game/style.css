@@ -25,28 +25,28 @@ body {
 }
 
 .controls .controls__btns {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .controls__btns button {
-    all: unset;
-    cursor: pointer;
-    background-color: white;
-    padding: 5px 0px;
-    width: 80px;
-    text-align: center;
-    border-radius: 6px;
-    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-    border: 2px solid rgba(0, 0, 0, 0.2);
-    color: rgba(0, 0, 0, 0.8);
-    text-transform: uppercase;
-    font-weight: 800;
-    font-size: 12px;
+  all: unset;
+  cursor: pointer;
+  background-color: white;
+  padding: 5px 0px;
+  width: 80px;
+  text-align: center;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.8);
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 12px;
 }
 
 /* 버튼이 클릭 되었을때 transform 주기 */
 .controls__btns button:active { 
-    transform: scale(0.98);
+  transform: scale(0.98);
 }
 
 .controls .controls__colors {
@@ -63,13 +63,26 @@ body {
 }
 
 .controls .controls__range {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+#jsColorPicker {
+  /* border-left: 1px solid; */
+  /* border-right: 1px solid; */
+  margin-left: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+#jsColorPicker > span {
+  font-size: 0.9rem;
 }
 
 /* my own css, for interactions */
 .grab { cursor: -webkit-grab; cursor: grab; }
 
 .controls__btns .paint_mode {
-    color: salmon;
-    font-weight: 900;
+  color: salmon;
+  font-weight: 900;
 }

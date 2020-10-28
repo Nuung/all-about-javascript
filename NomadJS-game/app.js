@@ -11,6 +11,7 @@ const canvas = document.getElementById("jsCanvas");
 const ctx = canvas.getContext("2d");
 const colorBtns = document.getElementsByClassName("jsColor");
 const brushSize = document.getElementById("jsRange");
+const colorPicker = document.getElementById("jsColorPicker"); // color picker
 
 // interaction BTN
 const jsReset = document.getElementById("jsReset");
@@ -144,9 +145,23 @@ const initMain = () => {
         })
     }
     if(jsMode) jsMode.addEventListener("click", handleModeClick);
-    if(jsSave) {
-        jsSave.addEventListener("click", handleSaveClick);
-    }
+    if(jsSave) jsSave.addEventListener("click", handleSaveClick);
+    
+    // color picker
+    if(colorPicker) {
+        colorPicker.addEventListener("click", (event => {
+            const inputColorPicker = document.createElement("input");
+            inputColorPicker.type = "color";
+            inputColorPicker.onchange = (event) => { 
+                const nowColor = event.target.value;
+                colorPicker.style.backgroundColor = nowColor; 
+                ctx.strokeStyle = nowColor;
+                ctx.fillStyle = nowColor;
+            }
+            inputColorPicker.click();
+        }));
+    }  
+
 }
 
 //-----------------------------------------------------------//
