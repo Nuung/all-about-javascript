@@ -64,3 +64,11 @@ body {
 .controls .controls__range {
     margin-bottom: 30px;
 }
+
+/* my own css, for interactions */
+.grab { cursor: -webkit-grab; cursor: grab; }
+
+.controls__btns .paint_mode {
+    color: salmon;
+    font-weight: 900;
+}

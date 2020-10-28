@@ -1,23 +1,39 @@
 
 // https://developer.mozilla.org/ko/docs/Web/HTML/Canvas 
+// golbal static int value
+const config = {
+    INITIAL_COLOR: "#2C2C2C",
+    CANVAS_SIZE: 700
+};
+
 // golbal value area
 const canvas = document.getElementById("jsCanvas");
 const ctx = canvas.getContext("2d");
+const colorBtns = document.getElementsByClassName("jsColor");
+const brushSize = document.getElementById("jsRange");
+
+// interaction BTN
+const jsReset = document.getElementById("jsReset");
+const jsMode = document.getElementById("jsMode");
 
 // size를 꼭 줘야한다! 
-canvas.width = 700; 
-canvas.height = 700;
+canvas.width = config.CANVAS_SIZE; 
+canvas.height = config.CANVAS_SIZE;
 
 // context setting (config)
-ctx.strokeStyle = "#2C2C2C";
+ctx.strokeStyle = config.INITIAL_COLOR;
+ctx.fillStyle = config.INITIAL_COLOR;
 ctx.lineWidth = 2.5; // line Width는 굵기다 
 
 // others
 let painting = false; // mouse click status
+let filling = false; // 컨버스에 채우기 액션을 위해 
 
 //-----------------------------------------------------------//
 // function area
 
+const stopPainting = () => painting = false;
+const startPainting = () => painting = true;
 const onMouseMove = (event) => {
     // mousemove event 값 중 clientX,Y는 윈도우 전체 범위 내에서 마우스 위치값
     // offsetX,Y는 target Dom Object에서 위치값임! <- 이걸 써야함! 
@@ -33,14 +49,41 @@ const onMouseMove = (event) => {
         ctx.lineTo(x, y); // path의 전 위치에서 지금 위치까지 선을 만드는 것
         ctx.stroke(); // sub-path를 획을 긋는다! 
     }
+};
+
+// change color action!
+const handleColorClick = (event) =>  {
+    const nowColor = event.target.style.backgroundColor;
+    ctx.strokeStyle = nowColor;
+    ctx.fillStyle = nowColor;
 }
 
-const stopPainting = () => {
-    painting = false;
+// change brush size
+const handleRangeChange = (event) => ctx.lineWidth = event.target.value;
+
+const handleModeClick = (event) => {
+    if(filling === true) {
+        filling = false;
+        jsMode.innerText = "Fill";
+        handleModeToggleAction();
+    }
+    else {
+        filling = true;
+        jsMode.innerText = "Paint"
+        handleModeToggleAction();
+
+        // ctx.fillStyle = ctx.strokeStyle; // 채우기 색상 맞춰주기! -> handleColorClick
+    }
 }
 
-const startPainting = () => {
-    painting = true;
+const handleModeToggleAction = () => {
+    // mouse cursor change on canvas
+    canvas.classList.toggle("grab");
+    jsMode.classList.toggle("paint_mode");
+}
+
+const handleCanvasClick = () => {
+    if(filling) ctx.fillRect(0, 0, config.CANVAS_SIZE, config.CANVAS_SIZE);
 }
 
 const initMain = () => {
@@ -51,9 +94,39 @@ const initMain = () => {
         canvas.addEventListener("mousedown", startPainting)
         // 때는 순간 (그리기 스탑)
         canvas.addEventListener("mouseup", stopPainting)
-        
         // 개인적으로 이게 없는게 더 그리는게 자연스러움
-        // canvas.addEventListener("mouseleave", stopPainting); 
+        canvas.addEventListener("mouseleave", stopPainting); 
+        // 채우기 액션을 위한 canvas click event
+        canvas.addEventListener("click", handleCanvasClick);
+    }
+
+    // color button obj
+    if(colorBtns) {
+        // "Array.from" change objet to array!!
+        Array.from(colorBtns).forEach(
+            color => color.addEventListener("click", handleColorClick)
+        );
+    }
+
+    // brush Range obj
+    if(brushSize) {
+        brushSize.addEventListener("input", handleRangeChange);
+        brushSize.addEventListener("change", handleRangeChange);
+    }
+
+    // action button obj
+    if(jsReset) {
+        jsReset.addEventListener("click", () => {
+            ctx.strokeStyle = config.INITIAL_COLOR;
+            ctx.fillStyle = config.INITIAL_COLOR;
+            ctx.lineWidth = 2.5;
+            brushSize.value = 2.5; // range input value change
+            // console.log();
+        })
+    }
+
+    if(jsMode) {
+        jsMode.addEventListener("click", handleModeClick)
     }
 }
 
