@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: slategrey;
+    font-family: 'Roboto', Helvetica, sans-serif;
+}
+
+.app {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-flow: column;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.app .list_btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app .list_btns button {
+    all: unset;
+    cursor: pointer;
+    background-color: white;
+    padding: 5px 0px;
+    margin: 5px;
+    width: 80px;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.28);
+    /* border: 2px solid rgba(0, 0, 0, 0.2); */
+    color: rgba(0, 0, 0, 0.8);
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 0.85rem;
+}
+
+.lists {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.lists .list {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+
+    width: 100%;
+    min-width: 250px;
+    max-width: 350px;
+    height: 100%;
+    min-height: 150px;
+
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: 0 15px;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.2s linear;
+    
+}
+
+.lists .list .list-item {
+    background-color: rgba(232, 251, 255, 255);
+    border-radius: 8px;
+    padding: 15px 20px;
+    text-align: center;
+    margin: 4px 0px;
+    /* cursor: grab; */
+}
+
+/* Toggle 전용 Class ~ css attributes */
+
+.grabbable {
+    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+ /* (Optional) Apply a "closed-hand" cursor during drag operation. */
+.grabbable:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
