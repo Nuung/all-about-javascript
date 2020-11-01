@@ -56,3 +56,37 @@
         <img src="https://github.com/Nuung/vanilla-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class2_img6.png" width="70%" />
 
         - 다운로드만 받아놓고 순서대로 실행함 
+
+## Data types, let vs var, hoisting(호이스팅) 
+
+> 아주 기본적이고 잘 아는 내용은 생략함, ES6 기반임을 잊지말자
+
+- let (ES6) ~ 가변 변수, mutable 메모리 할당 <-> const 불변 변수, 변경이 안됨! 할당되면 그대로, immutable
+    - **{ }** Block scope, 어디까지 접근이 가능한가?, const은 전역 (global)
+    - favor immutable data type always for a few reasons
+        1. security
+        2. thread safety (동시에 값 접근)
+        3. reduce human mistakes! 
+
+- var? -> 쓰지말자, undefined! 값이 없어도 사용 가능하다! var hoisting
+    - 어디서 선언한것과 상관없이 끌어 올려주는 것이다!
+    - **Block scope가 없다!!** 이게 가장 큰 에바다 
+    - 이런 유연함이 가장 큰 단점이 되어갔기 때문이다! (위험 부담)
+
+- data type ~ type of 로 체크
+    - primitive, single item: number, string, boolean, null, undefined, symbol object, box container
+    - function, first-class function
+    ps) **NaNd은 Not a Number다!**
+    - 최근에 bigInt (chrome, firefox에만) 추가됨, 숫자끝에 n붙여서 [MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
+    - string에서 template literals 유용하게 쓰기 **`` 이거 사용하기**
+    - boolean에서 0, null, undefined, Nan, '' 은 false
+    - *Symbol*로 같은 string에 대해 고유한 값으로 만들어 줄 수 있다!
+
+- Null vs Undefined [링크](https://webclub.tistory.com/1)
+
+- Javascript는 기본적으로 Dynamic typing language이다 -> 역시 강점이자 약점 
+    - 런타임 에러에서 data catch를 잡아야 하고 그것 때문에 TypeScript가 나오는 것! 
+    <img src="https://github.com/Nuung/vanilla-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class2_img7.png" 
+
+- Object, real-life object, data structure
+    - 한번 선언된 obj는 다른 obj로 선언이 가능하지만 내부에 있는 메모리 값 변경은 쌉가능이다 
