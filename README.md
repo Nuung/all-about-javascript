@@ -63,6 +63,11 @@
         - direct는 callback folder
 
 
+## Typescript
+
+- js의 최대 장점이자 단점인 유연성을 훨씬 규칙적으로 단단하게 해줄 'type'스크립트
+
+
 ###
 
 ## DevLogs
