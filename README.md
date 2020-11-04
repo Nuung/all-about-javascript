@@ -6,10 +6,11 @@
 [![GitHub stars](https://img.shields.io/github/stars/Nuung/vanilla-javascript)](https://github.com/Nuung/vanilla-javascript/stargazers)
 </div>
 
-# JS Basics - Vanilla Javasciprt
+# JS Basics - ALL about Javascript
 
-> Repository for the JS-Basics Nomad Academy Course. Cloning a Productivity App with VanillaJS </br>
-> And study space for javascript based on ES6
+> Study space for all about javascript based on ES6</br>
+> And Repository for the JS-Basics Nomad Academy Course. Cloning a Productivity App with VanillaJS 
+
 
 
 ###
