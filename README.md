@@ -16,7 +16,7 @@
 ###
 
 
-## Nomad Coders : Challenges
+## Vanilla JS, Nomad Coders : Challenges
 
 - 바닐라JS 2주 완성반 챌린지 CLEAR!
     - [노마드 챌린지](https://nomadcoders.co/challenges)
@@ -53,7 +53,7 @@
     - [실물 영접 하기](https://nuung.github.io/vanilla-javascript/Theme/Modal/modal.html)
 
 
-## 바닐라 자바 스크립트
+## Javascript Based on ES5+ (ES6)
 
 - 여러가지 컨셉의 컴포넌트, 테마, 오브젝트들
     1) [Drag and Drop](https://nuung.github.io/vanilla-javascript/Theme/DragAndDrop/)
