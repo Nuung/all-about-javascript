@@ -1,4 +1,5 @@
 # VanillaJavascript Dev Log
+
 - js를 거의 '메인 개발'언어로 참 많이 사용했다,, 메인 language, 알고리즘 language는 java로 쓰면서 back-end 작업은 거의 Only js만 사용했다.. spring을 경험하긴 했지만 환경 세팅, 부팅, 설계, 등 모든 과정이 너무 역겨워서 바로 nodejs - express의 세계로 넘어왔다. 
     - 사실 js 접하게 된 정말 첫 계기는 egoing이다. [생활코딩](https://opentutorials.org/course/1)
 

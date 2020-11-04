@@ -24,36 +24,36 @@
     ```
     - head에 넣으면 아래 이미지와 같은 과정
         
-        <img src="https://github.com/Nuung/vanilla-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class2_img1.png" width="70%" />
+        <img src="https://github.com/Nuung/all-about-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class2_img1.png" width="70%" />
 
     - body끝에 넣으면 아래 이미지와 같은 과정
         
-        <img src="https://github.com/Nuung/vanilla-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class2_img2.png" width="70%" />
+        <img src="https://github.com/Nuung/all-about-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class2_img2.png" width="70%" />
 
         - js에 의존적인 page라면, 정상적인 결과를 위해 client가 모든 dom요소를 파싱이 다 될때까지 + fetching, executing을 기다려야하는 문제점이 있다. 
 
     - head안에 **"asyn src"** 로 불러온다면?
         
-        <img src="https://github.com/Nuung/vanilla-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class2_img3.png" width="70%" />
+        <img src="https://github.com/Nuung/all-about-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class2_img3.png" width="70%" />
 
         - 모두 DOM요소를 모두 parsing하기 전에 js를 executing하기때문에 querySelect... 등의 DOM 제어한다면 그 제어시점과 엇나갈 수 있다!! 
         - blocking 시간이 있다
 
     - head안에 **"asyn src"** 로 여러개를 불러온다면?
         
-        <img src="https://github.com/Nuung/vanilla-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class2_img4.png" width="70%" />
+        <img src="https://github.com/Nuung/all-about-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class2_img4.png" width="70%" />
 
         - 순서가 중요한 js의 경우? 호환이 안될 가능성이 농후함!
 
     - head안에 **"defer src"** 로 불러온다면?
         
-        <img src="https://github.com/Nuung/vanilla-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class2_img5.png" width="70%" />
+        <img src="https://github.com/Nuung/all-about-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class2_img5.png" width="70%" />
 
         - 가장 좋은 옵션이다. 다운로드만 parsing과 동시에 해두고 page가 ready되었을때 바로 executing을 하는 것이다. 
 
     - head안에 **"defer src"** 로 여러개를 불러온다면?
         
-        <img src="https://github.com/Nuung/vanilla-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class2_img6.png" width="70%" />
+        <img src="https://github.com/Nuung/all-about-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class2_img6.png" width="70%" />
 
         - 다운로드만 받아놓고 순서대로 실행함 
 
@@ -86,7 +86,7 @@
 
 - Javascript는 기본적으로 Dynamic typing language이다 -> 역시 강점이자 약점 
     - 런타임 에러에서 data catch를 잡아야 하고 그것 때문에 TypeScript가 나오는 것! 
-    <img src="https://github.com/Nuung/vanilla-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class2_img7.png" 
+    <img src="https://github.com/Nuung/all-about-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class2_img7.png" 
 
 - Object, real-life object, data structure
     - 한번 선언된 obj는 다른 obj로 선언이 가능하지만 내부에 있는 메모리 값 변경은 쌉가능이다 
