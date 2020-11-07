@@ -20,3 +20,5 @@
     - 메모리를 차지 한거여~ 붕어빵 틀~
 
 - 실습 중심으로 조질꺼라 코드들을 참고하자! 주석도 되어 있다.
+
+- Js MDN Refer 참고 자료 : https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference
