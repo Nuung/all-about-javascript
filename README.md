@@ -60,7 +60,7 @@
 
 - ES6 공부 및 아주 기초부터 고급까지 바닐라 자바스크립트 실습 기반 연습 아카이브
     1. [유투브, 엘리](https://www.youtube.com/watch?v=wcsVjmHrUQg&list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2) - callback 중심
-        - direct는 callback folder
+        - 공부 목차 : [노트보기](/note)
 
 
 ## 3. Typescript

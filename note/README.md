@@ -6,4 +6,17 @@
 - 새로운 언어를 배우는 마음으로 js를 다시 잡고 제대로 기본부터 다져본다. java보다는 javascirpt를 압도적으로 더 유연하고 ES6 기반에 맞춰서 공부하려고 한다. 
     - 근데 바닐라에 대한 필기 노트는 만들기가 굉장히 귀찮았다.. 그래서 그때 그때 핵심적인 부분을 뽑아내서 dev log just single line~ 처럼 만들꺼다! 
 
-###
+
+</br>
+
+------------
+
+</br>
+
+## 엘리 유툽
+
+> 엘리 유투브 보면서 (핵심만, 내가 필요한 내용만) 정리한 공부 노트 바로가기 
+
+- [Async · Defer](/엘리유툽/class2.md)
+- [Basic of Coding / Operator / function (ES5+)](/엘리유툽/class4.md)
+- [OOP, Object Oriented Programming - Class (ES6)](/엘리유툽/class6.md)
