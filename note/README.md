@@ -17,6 +17,6 @@
 
 > 엘리 유투브 보면서 (핵심만, 내가 필요한 내용만) 정리한 공부 노트 바로가기 
 
-- [Async · Defer](/엘리유툽/class2.md)
-- [Basic of Coding / Operator / function (ES5+)](/엘리유툽/class4.md)
-- [OOP, Object Oriented Programming - Class (ES6)](/엘리유툽/class6.md)
+- [Async · Defer](https://github.com/Nuung/all-about-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class2.md)
+- [Basic of Coding / Operator / function (ES5+)](https://github.com/Nuung/all-about-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class4.md)
+- [OOP, Object Oriented Programming - Class (ES6)](https://github.com/Nuung/all-about-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class6.md)
