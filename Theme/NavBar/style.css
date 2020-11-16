@@ -1,0 +1,124 @@
+/* Google Web font */
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200&family=Oswald:wght@200&display=swap');
+
+:root {
+    --text-color: #f0f4f5;
+    --background-color: #263343;
+    --accent-color: #d49466;
+}
+
+body {
+    margin: 0;
+    font-family: 'Mukta', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-color);
+    padding: 2px 12px; /* 위와 양 옆에 주는 패딩 */
+}
+
+.navbar__logo {
+    font-size: 22px;
+    color: white;
+}
+
+.navbar__logo i {
+    color: var(--accent-color);
+}
+
+.navbar__menu {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+}
+
+.navbar__menu li {
+    padding: 2px 12px;
+}
+
+.navbar__menu li:hover {
+    background-color: var(--accent-color);
+    border-radius: 4px;
+}
+
+.navbar__icons {
+    list-style: none;
+    color: var(--text-color);
+    display: flex;
+    padding-left: 0;        
+}
+
+.navbar__icons li {
+    padding: 2px 12px;
+}
+
+.navbar__toogleBtn {
+    display: none;
+    position: absolute;
+    right: 32px;
+    font-size: 24px;
+    color: var(--accent-color);
+}
+
+/*---------- animation For event ----------*/
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
+/*---------- Media query! -> 768보다 작으면 아래 적용 ----------*/
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14.5px 24px;
+    }
+    
+    .navbar__menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar__menu li {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 2px;
+    }
+
+    .navbar__icons {
+        margin: 0;
+        display: none;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .navbar__icons li:hover {
+        box-shadow: 1px 1px 10px 0 rgba(0,0,0,0.6);
+    }
+
+    .navbar__toogleBtn {
+        display: block;
+    }
+
+    .navbar__menu.active,
+    .navbar__icons.active {
+        display: flex;
+        -webkit-animation: fadeIn 1.1s;
+        animation: fadeIn 1.1s;
+    }
+}
