@@ -20,3 +20,5 @@
 - [Async · Defer](https://github.com/Nuung/all-about-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class2.md)
 - [Basic of Coding / Operator / function (ES5+)](https://github.com/Nuung/all-about-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class4.md)
 - [OOP, Object Oriented Programming - Class (ES6)](https://github.com/Nuung/all-about-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class6.md)
+- **split, join, split, find, filter, map, some, every, reduce, reduceRight**
+    - [Array -> 이건 꼭 참조하자](https://github.com/Nuung/all-about-javascript/blob/master/note/%EC%97%98%EB%A6%AC%EC%9C%A0%ED%88%BD/class7.md)
