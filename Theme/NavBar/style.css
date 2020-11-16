@@ -60,6 +60,10 @@ a {
     padding: 2px 12px;
 }
 
+.navbar__icons li:hover {
+    box-shadow: 1px 1px 10px 0 rgba(0,0,0,0.6);
+}
+
 .navbar__toogleBtn {
     display: none;
     position: absolute;
@@ -105,10 +109,6 @@ a {
         display: none;
         justify-content: center;
         width: 100%;
-    }
-
-    .navbar__icons li:hover {
-        box-shadow: 1px 1px 10px 0 rgba(0,0,0,0.6);
     }
 
     .navbar__toogleBtn {
