@@ -5,28 +5,28 @@
             "gender": "female",
             "size": "large",
             "color": "pink",
-            "image": "../img/pink_t.png"
+            "image": "https://github.com/Nuung/all-about-javascript/tree/master/ShoppingGame/img/pink_t.png"
         },
         {
             "type": "pants",
             "gender": "male",
             "size": "large",
             "color": "blue",
-            "image": "../img/blue_p.png"
+            "image": "https://github.com/Nuung/all-about-javascript/tree/master/ShoppingGame/img/blue_p.png"
         },
         {
             "type": "pants",
             "gender": "female",
             "size": "small",
             "color": "yellow",
-            "image": "../img/yellow_p.png"
+            "image": "https://github.com/Nuung/all-about-javascript/tree/master/ShoppingGame/img/yellow_p.png"
         },
         {
             "type": "shirt",
             "gender": "female",
             "size": "large",
             "color": "pink",
-            "image": "../img/pink_s.png"
+            "image": "https://github.com/Nuung/all-about-javascript/tree/master/ShoppingGame/img/pink_s.png"
         }
     ]
 }
