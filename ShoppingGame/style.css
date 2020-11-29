@@ -100,3 +100,8 @@ body {
   margin-left: var(--base-space);
   font-size: var(--font-size);
 }
+
+/* for display none toggle */
+.invisible {
+  display: none;
+}
