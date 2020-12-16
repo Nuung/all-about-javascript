@@ -58,7 +58,7 @@ class Shape {
 }
 
 const s = new Shape(0, 0);
-console.log(s.area());
+console.log(s.area())
 
 
 class Circle extends Shape {
