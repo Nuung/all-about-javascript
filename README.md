@@ -68,7 +68,7 @@
         - 공부 목차 및 노트 : 
 
 - node.Js 실시간 서비스
-    1. [줌 클론코딩](https://nomadcoders.co/noom/lobby)
+    1. [줌 클론코딩](https://nomadcoders.co/noom/lobby) : [코드바로가기]()
         - WebSockets, SocketIO, WebRTC
         - checkout repo
 

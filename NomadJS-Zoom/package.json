@@ -1,0 +1,15 @@
+{
+  "name": "NomadJS-Zoom",
+  "version": "1.0.0",
+  "description": "NomadJS, Zoom Clone using WebRTC and WebSockets",
+  "keywords": [],
+  "author": "Nuung",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/node": "^7.14.9",
+    "@babel/preset-env": "^7.14.9",
+    "nodemon": "^2.0.12"
+  }
+}
