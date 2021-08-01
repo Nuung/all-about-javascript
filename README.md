@@ -67,13 +67,24 @@
     2. [Full Stack AirBnB clone](https://www.youtube.com/watch?v=kuswGIH-Xj8&list=PLN3n1USn4xlnfJIQBa6bBjjiECnk6zL6s)
         - 공부 목차 및 노트 : 
 
+- node.Js 실시간 서비스
+    1. [줌 클론코딩](https://nomadcoders.co/noom/lobby)
+        - WebSockets, SocketIO, WebRTC
+        - checkout repo
 
-## 3. Typescript
+
+## 3. Functional Javascript ES6+
+
+- 절차, 객체 넘어 함수 지향 코딩 스타일, [함수형 자바스크립트](https://mangkyu.tistory.com/111)
+    1. 인프런, [함수형 프로그래밍과 JS, ES6+](https://www.inflearn.com/course/functional-es6/dashboard) : [코드바로가기]()
+
+
+## 4. Typescript
 
 - js의 최대 장점이자 단점인 유연성을 훨씬 규칙적으로 단단하게 해줄 'type'스크립트
 
 
-###
+---
 
 ## DevLogs
 
