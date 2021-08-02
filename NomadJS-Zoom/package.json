@@ -5,11 +5,19 @@
   "keywords": [],
   "author": "Nuung",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon"
+  },
   "devDependencies": {
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.14.8",
     "@babel/node": "^7.14.9",
     "@babel/preset-env": "^7.14.9",
     "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^3.0.2",
+    "ws": "^8.0.0"
   }
 }
