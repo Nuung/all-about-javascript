@@ -1,18 +1,4 @@
 doctype html
-style.
-    .form__ {
-        display: flex;
-        justify-content: center;
-    }
-    .form__ > form {
-        text-align: right;
-    }
-    #chat_box {
-        margin: 4%;
-        border: 0.5px solid black;
-        list-style:none;
-    }
-
 html(lang="en")
     head
         meta(charset="UTF-8")
@@ -22,18 +8,8 @@ html(lang="en")
         link(rel="stylesheet", href="https://unpkg.com/mvp.css")
     body 
         header 
-            h1 Live Chat With WS (and nodeJs)
+            h1 Live Chat With Socket.io (and nodeJs)
         main 
-            div.form__
-                form#nick
-                    input(type="text", placeholder="Choose a nickname", required)
-                    span#nick__value(style="margin-right: 10px") Anonymous
-                    button Save 
-            ul#chat_box
-                li(style="text-align: center") 🔥 chat 🔥
-            div.form__
-                form#msg
-                    input(type="text", placeholder="Write a msg", required)
-                    button Send
 
+        script(src="/socket.io/socket.io.js")
         script(src="public/js/app.js")
