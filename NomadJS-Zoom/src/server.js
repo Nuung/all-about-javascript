@@ -55,7 +55,45 @@ const httpServer = http.createServer(app);
 const wsServer = SocketIO(httpServer);
 
 wsServer.on("connection", (socket) => {
-    log(socket);
+    socket.onAny((event) => {
+        log(`Socket event type: ${event}`);
+    });
+    // log(socket);
+    // FE에서 3번째 인자로 보낸 object(Function) 받아서
+    // 다음과 같이 처리가 가능해진다 -> done() 함수 체크
+    socket.on("enter_room", (roomName, done) => {
+        // join 전과 후의 socket Set list의 차이점을 살펴보자!
+        // log(socket.id); // -> connection된 socket ID(유일)을 알아서 해당 소켓에만 연결 가능해짐
+        // log(socket.rooms);
+        // socket.join(roomName);
+        // log(socket.rooms);
+        // setTimeout(() => {
+        //     done("Hello From The Backend ✅");
+        // }, 1000);
+
+        socket.join(roomName);
+        done(roomName);
+
+        // roomName에게 emit(event triging) => event key
+        // FE에서 해당 key를 받으면, 다른 사람이 "해당 room에 들어온 것 처럼"
+        // 즉, "같은 소켓 그룹에 들어온 것"이 된다!
+        socket.to(roomName).emit("welcome");
+    });
+
+    // FE에서 방 들어온 뒤에 new msg형태 이벤트를 msg와 함께 보낼때
+    socket.on("new_message", (msg, roomName, done) => {
+        socket.to(roomName.split(":")[1].trim()).emit("new_message", msg);
+        done();
+    });
+
+    // disconnecting event type 발생시!
+    // socket.rooms로 Socket Set(session)리스트를 모두 가져와서 
+    // forEach -> 해당 룸 모두에게 'bye' 이벤트 발생
+    socket.on("disconnecting", () => {
+        socket.rooms.forEach((room) => {
+            socket.to(room).emit("bye");
+        });
+    });
 });
 
 

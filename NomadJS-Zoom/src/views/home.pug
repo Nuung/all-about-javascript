@@ -10,6 +10,15 @@ html(lang="en")
         header 
             h1 Live Chat With Socket.io (and nodeJs)
         main 
-
+            div#welcome
+                form
+                    input(type="text", placeholder="room name", required)
+                    button Enter Room
+            div#room
+                h3
+                ul 
+                form
+                    input(type="text", placeholder="message", required)
+                    button Send
         script(src="/socket.io/socket.io.js")
         script(src="public/js/app.js")
