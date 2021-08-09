@@ -55,6 +55,10 @@ const httpServer = http.createServer(app);
 const wsServer = SocketIO(httpServer);
 
 wsServer.on("connection", (socket) => {
+    
+    // 닉네임 설정, 어트리뷰트 추가
+    socket.nick_name = "Anon"; // 기본값으로 어나니머스
+
     socket.onAny((event) => {
         log(`Socket event type: ${event}`);
     });
@@ -77,13 +81,19 @@ wsServer.on("connection", (socket) => {
         // roomName에게 emit(event triging) => event key
         // FE에서 해당 key를 받으면, 다른 사람이 "해당 room에 들어온 것 처럼"
         // 즉, "같은 소켓 그룹에 들어온 것"이 된다!
-        socket.to(roomName).emit("welcome");
+        socket.to(roomName).emit("welcome", socket.nick_name);
     });
 
     // FE에서 방 들어온 뒤에 new msg형태 이벤트를 msg와 함께 보낼때
     socket.on("new_message", (msg, roomName, done) => {
-        socket.to(roomName.split(":")[1].trim()).emit("new_message", msg);
+        socket.to(roomName).emit("new_message", `${socket.nick_name}: ${msg}`);
         done();
+    });
+
+    // FE에서 방 들어온 뒤에 nick_name형태 이벤트를 msg와 함께 보낼때
+    socket.on("nick_name", (nick_name) => {
+        // FE에 갈(comunication하는) socket object의 nick_name속성값을 줘버리기
+        socket.nick_name = nick_name;
     });
 
     // disconnecting event type 발생시!
@@ -91,7 +101,7 @@ wsServer.on("connection", (socket) => {
     // forEach -> 해당 룸 모두에게 'bye' 이벤트 발생
     socket.on("disconnecting", () => {
         socket.rooms.forEach((room) => {
-            socket.to(room).emit("bye");
+            socket.to(room).emit("bye", socket.nick_name);
         });
     });
 });

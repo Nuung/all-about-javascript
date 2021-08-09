@@ -20,20 +20,29 @@ function showRoom(roomName) {
     h3.innerText = `Room: ${roomName}`;
 
     // snd msg DOM 
-    const form = room.querySelector("form");
-    form.addEventListener("submit", handleMsgSubmit);
+    const msgForm = room.querySelector("#msg");
+    const nameForm = room.querySelector("#name");
+    msgForm.addEventListener("submit", handleMsgSubmit);
+    nameForm.addEventListener("submit", handleNameSubmit);
 }
 
 // sent the msg to the room socket
 function handleMsgSubmit(event) {
     event.preventDefault();
-    const input = room.querySelector("input");
+    const input = room.querySelector("#msg input");
     let roomName = room.querySelector("h3").innerText;
     roomName = roomName.split(":")[1].trim(); // parsing data 하하 
     socket.emit("new_message", input.value, roomName, () => {
         addMsg(`You: ${input.value}`);
         input.value = "";
     });
+}
+
+// sent the nick name
+function handleNameSubmit(event) {
+    event.preventDefault();
+    const input = room.querySelector("#name input");
+    socket.emit("nick_name", input.value);
 }
 
 // join the room
@@ -69,12 +78,12 @@ form.addEventListener("submit", handleRoomSubmit);
 
 // BE에서 클라이언트(FE)보내주는 것들 캐치해보자
 // BE와 마찬가지로 on을 통해 해당 key event를 캐치하자!
-socket.on("welcome", () => {
-    addMsg("Someone Joined the room!!");
+socket.on("welcome", (user) => {
+    addMsg(`${user} Joined the room!!`);
 });
 
-socket.on("bye", () => {
-    addMsg("Someone left the room!!");
+socket.on("bye", (left) => {
+    addMsg(`${left} left the room!!`);
 });
 
 socket.on("new_message", addMsg);
