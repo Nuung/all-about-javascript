@@ -8,6 +8,7 @@ const socket = io();
 const welcome = document.getElementById("welcome");
 const form = welcome.querySelector("form");
 const room = document.getElementById("room"); // dom div#room
+let staticRoomName = ""; // static value
 
 // display none으로 일단 만들어두기 -> room들어가면 on
 room.hidden = true;
@@ -18,6 +19,7 @@ function showRoom(roomName) {
     room.hidden = false;
     const h3 = room.querySelector("h3");
     h3.innerText = `Room: ${roomName}`;
+    staticRoomName = roomName;
 
     // snd msg DOM 
     const msgForm = room.querySelector("#msg");
@@ -30,9 +32,9 @@ function showRoom(roomName) {
 function handleMsgSubmit(event) {
     event.preventDefault();
     const input = room.querySelector("#msg input");
-    let roomName = room.querySelector("h3").innerText;
-    roomName = roomName.split(":")[1].trim(); // parsing data 하하 
-    socket.emit("new_message", input.value, roomName, () => {
+    // let roomName = room.querySelector("h3").innerText;
+    // roomName = roomName.split(":")[1].trim(); // parsing data 하하 
+    socket.emit("new_message", input.value, staticRoomName, () => {
         addMsg(`You: ${input.value}`);
         input.value = "";
     });
@@ -78,12 +80,33 @@ form.addEventListener("submit", handleRoomSubmit);
 
 // BE에서 클라이언트(FE)보내주는 것들 캐치해보자
 // BE와 마찬가지로 on을 통해 해당 key event를 캐치하자!
-socket.on("welcome", (user) => {
+socket.on("welcome", (user, newCount) => {
+    const h3 = room.querySelector("h3");
+    h3.innerText = `Room ${staticRoomName} (${newCount})`;
     addMsg(`${user} Joined the room!!`);
 });
 
-socket.on("bye", (left) => {
+socket.on("bye", (left, newCount) => {
+    const h3 = room.querySelector("h3");
+    h3.innerText = `Room ${staticRoomName} (${newCount})`
     addMsg(`${left} left the room!!`);
 });
 
+// new msg add to ul (by making list)
 socket.on("new_message", addMsg);
+
+// BE에서 새롭게 생긴 방(public room) 모두 얻어서 FE로 가져왔음
+socket.on("room_change", (rooms) => {
+
+    const roomList = welcome.querySelector("ul");
+    roomList.innerHTML = ""; // 일단 비우고 다시 그려주기
+
+    // room이 0인 상태면 걍 바로 리턴
+    if (rooms.length === 0) return;
+
+    rooms.forEach(room => {
+        const li = document.createElement("li");
+        li.innerText = room;
+        roomList.append(li);
+    });
+});
