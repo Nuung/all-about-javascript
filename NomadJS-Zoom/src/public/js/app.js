@@ -5,108 +5,152 @@ const log = console.log;
 // socket io init -> 생성자 + connection
 const socket = io();
 
-const welcome = document.getElementById("welcome");
-const form = welcome.querySelector("form");
-const room = document.getElementById("room"); // dom div#room
-let staticRoomName = ""; // static value
+// -------------------- static dom selector area -------------------- //
+const myFace = document.getElementById("myFace");           // video tag
+const muteBtn = document.getElementById("mute");            // mute button
+const cameraBtn = document.getElementById("camera");        // camera on/off button
+const camerasSelect = document.getElementById("cameras");   // select area
+const welcome = document.getElementById("welcome");         // welcome div for joining room action
+const welcomeForm = welcome.querySelector("form");          // form under the welcome
+const call = document.getElementById("call");               // origin DIV (video) 
 
-// display none으로 일단 만들어두기 -> room들어가면 on
-room.hidden = true;
+// add Events
+muteBtn.addEventListener("click", handleMuteClick);
+cameraBtn.addEventListener("click", handleCameraClick);
+camerasSelect.addEventListener("input", handleCameraChange);
+welcomeForm.addEventListener("submit", handleWelcomeSubmit)
 
-// join the room -> show chat list
-function showRoom(roomName) {
+// not const
+let myStream;
+let muted = false;
+let cameraOff = false;
+let roomName = "";
+
+// -------------------------- Function area -------------------------- //
+
+// get user media HTML api 사용하기 -> 비동기 + await!!
+async function getMedia(deviceId) {
+    // deviceId가 없을때, 초기 설정 
+    const initConstraints = {
+        audio: true,
+        video: { facingMode: "user" }
+    }
+
+    // deviceId로 select한 option의 value 값으로 카메라 변경!
+    const cameraConstraints = {
+        audio: true,
+        video: { deviceId: { exact: deviceId } }
+    }
+
+    try {
+        // getUserMedia에 값으로 오는 것들이 constraints ( https://developer.mozilla.org/ko/docs/Web/API/MediaDevices/getUserMedia )
+        myStream = await navigator.mediaDevices.getUserMedia(
+            deviceId ? cameraConstraints : initConstraints
+        );
+        // log(myStream);
+        myFace.srcObject = myStream;
+
+        // 아래 행위는 최초 (init)일때 한 번 만! 
+        if (!deviceId) {
+            await getCameras(); // 카메라 장치 정보 얻어오기    
+        }
+    } catch (error) {
+        log(error);
+    }
+}
+
+// 연결된 비디오 장치 모두 array형태로 얻어오기! -> 이것 중 kind가 video input인 것만 잡으면 된다 (그게 카메라!)
+async function getCameras() {
+    try {
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        const cameras = devices.filter(device => device.kind === "videoinput");
+
+        // 호출했을때 지금 스트리밍 중인 해당 카메라 정보를 얻고 싶다!
+        const currentCamera = myStream.getVideoTracks()[0]; // 첫번째 트렉을 가져온다! 
+
+        cameras.forEach(camera => {
+            const option = document.createElement("option");
+            option.value = camera.deviceId;
+            option.innerText = camera.label;
+
+            // 지금 내가 스트리밍 중인, 해당하는 option을 선택하게 만들고 싶다! 
+            if (currentCamera.label == camera.label) {
+                option.selected = true;
+            }
+
+            camerasSelect.appendChild(option);
+        });
+    } catch (error) {
+        log(error);
+    }
+}
+
+function handleMuteClick() {
+    myStream
+        .getAudioTracks()
+        .forEach(track => {
+            track.enabled = !track.enabled;
+        });
+    if (!muted) {
+        muteBtn.innerText = "Unmute";
+        muted = true;
+    }
+    else {
+        muteBtn.innerText = "Mute";
+        muted = false;
+    }
+}
+
+function handleCameraClick() {
+    myStream
+        .getVideoTracks()
+        .forEach(track => {
+            track.enabled = !track.enabled;
+        });
+    if (cameraOff) {
+        cameraBtn.innerText = "Turn Camera Off";
+        cameraOff = false;
+    }
+    else {
+        cameraBtn.innerText = "Turn Camera On";
+        cameraOff = true;
+    }
+}
+
+async function handleCameraChange() {
+    log(camerasSelect.value);
+    await getMedia(camerasSelect.value);
+}
+
+function startMedia() {
+    // display 처리 해주기
     welcome.hidden = true;
-    room.hidden = false;
-    const h3 = room.querySelector("h3");
-    h3.innerText = `Room: ${roomName}`;
-    staticRoomName = roomName;
-
-    // snd msg DOM 
-    const msgForm = room.querySelector("#msg");
-    const nameForm = room.querySelector("#name");
-    msgForm.addEventListener("submit", handleMsgSubmit);
-    nameForm.addEventListener("submit", handleNameSubmit);
+    call.hidden = false;
+    getMedia(); // 비디오 스트리밍의 스타트 지점! 
 }
 
-// sent the msg to the room socket
-function handleMsgSubmit(event) {
+function handleWelcomeSubmit(event) {
     event.preventDefault();
-    const input = room.querySelector("#msg input");
-    // let roomName = room.querySelector("h3").innerText;
-    // roomName = roomName.split(":")[1].trim(); // parsing data 하하 
-    socket.emit("new_message", input.value, staticRoomName, () => {
-        addMsg(`You: ${input.value}`);
-        input.value = "";
-    });
-}
+    const input = welcomeForm.querySelector("input");
+    // log(input.value);
 
-// sent the nick name
-function handleNameSubmit(event) {
-    event.preventDefault();
-    const input = room.querySelector("#name input");
-    socket.emit("nick_name", input.value);
-}
-
-// join the room
-function handleRoomSubmit(event) {
-    event.preventDefault();
-    const input = form.querySelector("input");
-    // WS와 다르게, 소켓 object의 이벤트 '형태(type)', data '형태(type)' 모두 따로 정의를 해서 
-    // 백엔드와 커뮤니케이션이 가능하다 / 게다가 node-mon으로 백엔드 리프레쉬되어도 자동 리커넥션으로 소켓 연동이 계속 되는 걸 확인가능하다
-    // 3번째 인자로 callback function을 option으로 받기때문에 ㅈㄴ편해짐
-    /*
-    socket.emit("enter_room", { payload: input.value }, (returnMsg) => {
-        log(`Send enter_room: ${input.value}, server done well ✅`);
-        log(returnMsg);
-    }); 
-    */
-
-    socket.emit("enter_room", input.value, (returnMsg) => {
-        showRoom(returnMsg);
-    });
+    // socket io를 통해 서버로 데이터를 보내주자 
+    socket.emit("join_room", input.value, startMedia);
+    roomName = input.value; // room name 저장하기!
     input.value = "";
 }
 
-// Append list to ul ~ like chat list
-function addMsg(msg) {
-    const ul = room.querySelector("ul");
-    const li = document.createElement("li");
-    li.innerText = msg;
-    ul.append(li);
+// ------------------------- Socket code area -------------------------- //
+
+socket.on("welcome", () => {
+    log("someone joined");
+})
+
+
+// ----------------------------- Main area ----------------------------- //
+
+const init = () => {
+    call.hidden = true;
 }
 
-// EVENT LISTNER
-form.addEventListener("submit", handleRoomSubmit);
-
-// BE에서 클라이언트(FE)보내주는 것들 캐치해보자
-// BE와 마찬가지로 on을 통해 해당 key event를 캐치하자!
-socket.on("welcome", (user, newCount) => {
-    const h3 = room.querySelector("h3");
-    h3.innerText = `Room ${staticRoomName} (${newCount})`;
-    addMsg(`${user} Joined the room!!`);
-});
-
-socket.on("bye", (left, newCount) => {
-    const h3 = room.querySelector("h3");
-    h3.innerText = `Room ${staticRoomName} (${newCount})`
-    addMsg(`${left} left the room!!`);
-});
-
-// new msg add to ul (by making list)
-socket.on("new_message", addMsg);
-
-// BE에서 새롭게 생긴 방(public room) 모두 얻어서 FE로 가져왔음
-socket.on("room_change", (rooms) => {
-
-    const roomList = welcome.querySelector("ul");
-    roomList.innerHTML = ""; // 일단 비우고 다시 그려주기
-
-    // room이 0인 상태면 걍 바로 리턴
-    if (rooms.length === 0) return;
-
-    rooms.forEach(room => {
-        const li = document.createElement("li");
-        li.innerText = room;
-        roomList.append(li);
-    });
-});
+init();
