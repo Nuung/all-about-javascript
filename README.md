@@ -70,7 +70,7 @@
 - node.Js 실시간 서비스
     1. [줌 클론코딩](https://nomadcoders.co/noom/lobby) : [코드바로가기]()
         - WebSockets, SocketIO, WebRTC
-        - checkout repo
+        - [Checkout Repo](https://github.com/Nuung/all-about-javascript/tree/master/NomadJS-Zoom)
 
 
 ## 3. Functional Javascript ES6+
