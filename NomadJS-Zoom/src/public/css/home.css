@@ -1,0 +1,66 @@
+body {
+    background-color: rgb(242, 242, 242);
+}
+
+header>img {
+    width: 10%;
+}
+
+button {
+    border: rgb(241, 153, 56) !important;
+    background-color: rgb(241, 153, 56) !important;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+#welcome {
+    display: flex;
+    justify-content: center;
+}
+
+#welcome>form {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+#welcome>form>input {
+    margin: 8px;
+}
+
+#myStrem {
+    display: flex;
+}
+
+#myStrem>video {
+    margin: 20px;
+}
+
+/* 내 비디오에 대한 영상 설정 */
+
+#myFace {}
+
+/* peer 비디오에 대한 영상 설정 */
+
+#peerFace {
+    background-image: url("/public/video_loading.gif");
+    background-repeat: no-repeat;
+    background-position: center
+}
+
+#btnDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#btnDiv>button {
+    width: 30%;
+    /* border-radius: 100%; */
+    /* font-size: 0.8rem; */
+}

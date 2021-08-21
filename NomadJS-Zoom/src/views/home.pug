@@ -4,11 +4,13 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title live Cam with SocketIo
+        title NOOM
         link(rel="stylesheet", href="https://unpkg.com/mvp.css")
+        link(rel="stylesheet", href="/public/css/home.css")
     body 
         header 
-            h1 Live Cam(Video) With Socket.io (and nodeJs)
+            img(src="/public/nomad_ci.jpeg", alt="")
+            h1 NOOM
         main 
             div#welcome
                 form
@@ -16,7 +18,12 @@ html(lang="en")
                     button Enter Room
             div#call
                 div#myStrem
-                    video#myFace(autoplay, playsinline, width="400", height="400")
+                    video#myFace(autoplay, playsinline, width="500", height="500")
+                        span It's your's
+                    video#peerFace(autoplay, playsinline, width="500", height="500")
+                        span It's your's
+
+                div#btnDiv
                     button#mute Mute
                     button#camera Turn Camera Off
                     select#cameras 
