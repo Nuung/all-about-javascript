@@ -23,7 +23,7 @@ app.use("/public", express.static(__dirname + "/public"));
 /**
  * @httpRequestAndResponse
  */
-app.get("/", (_, res) => res.render("home"));
+app.get("/", (_, res) => res.render("home_ws"));
 app.get("/*", (req, res) => {
     const fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     log(`${new Date().toISOString()}: ${fullUrl}`);
