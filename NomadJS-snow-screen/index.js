@@ -5,13 +5,13 @@ const MIN_DURATION = 10;
 
 /**
  * snow animation이 있는 snow div dom 생성 후 리턴
+ * @param {number} duration snow action 지속될 시간
  * @returns HTMLDivElement
  */
-const makeSnowFlakeDiv = () => {
+const makeSnowFlakeDiv = (duration) => {
     const snowDiv = document.createElement("div");
     const delay = Math.random() * 10;
     const initialOpacity = Math.random(); // from 0 to 1 (float)
-    const duration = Math.random() * 20 + MIN_DURATION;
 
     snowDiv.classList.add("snowflake");
     snowDiv.style.left = `${Math.random() * window.screen.width}px`;
@@ -28,7 +28,8 @@ const makeSnowFlakeDiv = () => {
  */
 const snowAction = (wrapper) => {
     const bodyDom = (wrapper) ? wrapper : document.querySelector("body");
-    const snowDiv = makeSnowFlakeDiv();
+    const duration = Math.random() * 20 + MIN_DURATION;
+    const snowDiv = makeSnowFlakeDiv(duration);
     bodyDom.appendChild(snowDiv);
 
     // remove from the memory
