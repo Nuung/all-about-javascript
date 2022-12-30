@@ -11,7 +11,6 @@ const MIN_DURATION = 10;
  */
 const makeSnowFlakeDiv = (delay, duration) => {
     const snowDiv = document.createElement("div");
-    const delay = Math.random() * 10;
     const initialOpacity = Math.random(); // from 0 to 1 (float)
 
     snowDiv.classList.add("snowflake");
