@@ -31,7 +31,7 @@ const snowAction = (wrapper) => {
     
     const delay = Math.random() * 10;
     const duration = Math.random() * 20 + MIN_DURATION;
-    const snowDiv = makeSnowFlakeDiv(duration);
+    const snowDiv = makeSnowFlakeDiv(delay, duration);
     targetDom.appendChild(snowDiv);
 
     // remove from the memory
