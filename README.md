@@ -8,7 +8,7 @@
 
 # JS Basics - ALL about Javascript
 
-> Study space for all about javascript based on ES6</br>
+> Study space for all about javascript based on ES6 </br>
 > And Repository for the JS-Basics Nomad Academy Course. Cloning a Productivity App with VanillaJS 
 
 
@@ -16,14 +16,11 @@
 ###
 
 
-## 1. Vanilla JS, Nomad Coders : Challenges
+## 1. Vanilla JS, Nomad Coders
 
 - 바닐라JS 2주 완성반 챌린지 CLEAR!
     - [노마드 챌린지](https://nomadcoders.co/challenges)
     - 챌린지 결과물 : https://nuung.github.io/all-about-javascript/
-
-    <div align = center><img src="https://github.com/Nuung/all-about-javascript/blob/master/NomadJS/images/clear.png" width="50%"/></div>
-
     - 제출한 가벼운 과제들
         - [Time Until Christmas](https://nuung.github.io/all-about-javascript/NomadJS/TimeUntilChri.html)
         - [Random Number Game](https://nuung.github.io/all-about-javascript/NomadJS/RandomNumberGame.html)
@@ -38,7 +35,7 @@
 
 
 - 바닐라JS Simple Pop up (modal) screen in 5 min
-    - [노마드 유튜브](https://youtu.be/V08wXKHF_Xw)
+    - [노마드 유투브](https://youtu.be/V08wXKHF_Xw)
     - CSS 적인 요소가 더 크긴함! 뭐 굳이 핵심 JS 포인트는 classList / add / remove
     ```javascript
         DomObj.classList.add("CLASS");
@@ -52,6 +49,8 @@
     - [코드 보러 가기](https://github.com/Nuung/all-about-javascript/blob/master/Theme/Modal/modal.html)
     - [실물 영접 하기](https://nuung.github.io/all-about-javascript/Theme/Modal/modal.html)
 
+- 바닐라JS Simple Snow screen
+    - [노마드 유투브](https://youtu.be/3CuUmy7jX6k)
 
 ## 2. Javascript Based on ES5+ (ES6)
 
@@ -90,6 +89,6 @@
 
 - 블라블라블라~ note 폴더로 안내~ 
 
-## PS
+## ETC
 
 - [How To Use Shield in GitHub](https://youtu.be/Dl-ekLb4quE)
