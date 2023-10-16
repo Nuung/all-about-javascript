@@ -1,0 +1,12 @@
+{
+  "name": "CRDT Conflict-free Replicated Data Type",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ws": "^8.14.2"
+  }
+}

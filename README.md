@@ -61,6 +61,11 @@
     
 #### 1) [Drag and Drop](https://nuung.github.io/all-about-javascript/Theme/DragAndDrop/)
 
+#### 2) Frontend에서 CRDT(Conflict-free Replicated Data Type)
+
+- `node`의 `ws`모듈 기반으로 웹소켓을 통한 그림판 실시간으로 데이터 공유하기
+- 완벽한 CRDT의 컨셉이라 보기엔 어렵다. **`merge`** 와 **중복방지** 부분은 강화할 필요가 있다.
+
 ### ES6 공부 및 아주 기초부터 고급까지 바닐라 자바스크립트 실습 기반 연습 아카이브
 
 #### 1) [유투브, 엘리](https://www.youtube.com/watch?v=wcsVjmHrUQg&list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2)
