@@ -74,9 +74,9 @@
 #### 6) Twitter clone coding
 
 - [노마드 유투브](https://nomadcoders.co/nwitter)
-- Vite를 통한 ReactJS 프로젝트, **Firebase 가 핵심**
-- [코드 보러 가기](https://github.com/Nuung/all-about-javascript/tree/master/NomadJS-snow-screen)
-- [실물 보러 가기](https://nuung.github.io/all-about-javascript/NomadJS-snow-screen/index.html)
+- Vite를 통한 ReactJS 프로젝트, **Firebase 가 핵심 (auth, db, storage)**
+- [코드 보러 가기](https://github.com/Nuung/all-about-javascript/tree/master/NomadJS-twitter)
+- [실물 보러 가기](https://nomadjs-tweet.web.app/) - 실제 firebase 를 통해 deploy & hosting 한 상태, 무료 티어
 
 ## 3. Functional Javascript ES6+
 
