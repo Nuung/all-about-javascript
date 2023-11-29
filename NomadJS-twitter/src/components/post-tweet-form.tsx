@@ -1,7 +1,8 @@
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, updateDoc } from "firebase/firestore";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { auth, db } from "../firebase";
+import { auth, db, storage } from "../firebase";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 const Form = styled.form`
   display: flex;
@@ -66,6 +67,9 @@ export default function PostTweetForm() {
   };
   const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = e.target; // 첨부한 파일이 딱 하나일때만 일단 처리하도록
+
+    // ps - file에 대한 용량 리미트 걸기
+
     if (files && files.length === 1) {
       setFile(files[0]);
     }
@@ -80,12 +84,22 @@ export default function PostTweetForm() {
     try {
       setLoading(true);
       // fucking simple한 DB에 data-insert하기
-      await addDoc(collection(db, "tweets"), {
+      const doc = await addDoc(collection(db, "tweets"), {
         tweet,
         username: user.displayName || "Anonymous",
         userId: user.uid,
         createdAt: Date.now(),
       });
+
+      // file은 Optional 한 값, file은 path (static) 형식으로 접근
+      if (file) {
+        const locationRef = ref(storage, `tweets/${user.uid}/${doc.id}`);
+        const result = await uploadBytes(locationRef, file);
+        const filePath = await getDownloadURL(result.ref);
+
+        // 이미지 url을 doc에 다시 업데이트 한 번 해주기
+        await updateDoc(doc, { photo: filePath })
+      }
     } catch (error) {
       console.log(error);
     } finally {
