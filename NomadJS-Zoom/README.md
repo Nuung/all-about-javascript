@@ -10,5 +10,5 @@
 
 ## Demo Image
 
-- ![ex1](https://github.com/Nuung/all-about-javascript/blob/master/NomadJS-Zoom/src/public/noom_ex_1.png?raw=true)
-- ![ex2](https://github.com/Nuung/all-about-javascript/blob/master/NomadJS-Zoom/src/public/noom_ex_2.png?raw=true)
+- ![ex1](https://raw.githubusercontent.com/Nuung/all-about-javascript/main/NomadJS-Zoom/src/public/noom_ex_1.png)
+- ![ex2](https://raw.githubusercontent.com/Nuung/all-about-javascript/main/NomadJS-Zoom/src/public/noom_ex_2.png)
