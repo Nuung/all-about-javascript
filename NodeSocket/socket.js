@@ -1,7 +1,13 @@
 const SocketIO = require("socket.io");
 
 module.exports = (server) => {
-    const io = SocketIO(server, { path: "/socket.io" });
+    const io = SocketIO(server, {
+        path: "/socket.io",
+        cors: {
+            origin: "*",
+            methods: ["GET", "POST"]
+        },
+    });
 
     // 첫 매개변수 event 이름, "연결"이 되어야 ping - pong 가능
     // FE와 BE의 연결 완료에서 "connection" event 발생

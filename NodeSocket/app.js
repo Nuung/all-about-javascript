@@ -3,8 +3,13 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+const cors = require("cors");
 
 const app = express();
+
+// ========================================================= //
+// app config
+// ========================================================= //
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -16,6 +21,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+// cors config
+app.use(
+  cors({
+    methods: ["GET", "POST", "DELETE", "OPTIONS"],
+    origin: "*",
+  })
+);
+
 // ========================================================= //
 // router
 // ========================================================= //
@@ -24,6 +37,11 @@ const usersRouter = require("./routes/users");
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+
+
+// ========================================================= //
+// global error handling
+// ========================================================= //
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

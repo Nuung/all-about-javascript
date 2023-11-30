@@ -8,5 +8,34 @@
   </head>
   <body>
     <h1>모든 사용자간 채탱하기</h1>
+    nickname <input type="text" id="nickname" value="" /><br />
+    message <input type="text" id="message" value="" /><br />
+    <input type="button" value="SEND" id="btnSend" /><br />
+    <hr />
+    <ul id="chatHistory"></ul>
+
+    <!-- jquery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- socket.io js library -->
+    <script
+      src="https://cdn.socket.io/4.7.2/socket.io.min.js"
+      integrity="sha384-mZLF4UVrpi/QTWPA7BjNPEnkIfRFn4ZEO3Qt/HFklTJBj/gBOV8G3HcKn4NfQblz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const socket = io.connect("/"); // = http://localhost:3000
+      $("#btnSend").click(() => {
+        const msg = $("#message").val();
+        const nickname = $("#nickname").val();
+        const sendMsg = `${nickname}:${msg}`;
+        socket.emit("broadcast", sendMsg);
+      });
+
+      socket.on("receiveAll", (receiveMsg) => {
+        console.log(`receiveMsg >> ${receiveMsg}`);
+        $("#chatHistory").append(`<li>${receiveMsg}</li>`);
+      });
+    </script>
   </body>
 </html>
