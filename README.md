@@ -28,10 +28,16 @@
 #### 1) [유투브, 엘리](https://www.youtube.com/watch?v=wcsVjmHrUQg&list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2)
 
 - 공부 목차 : [노트보기](/note)
-- NavBar Theme : [코드](https://github.com/Nuung/all-about-javascript/blob/master/Theme/NavBar) / [실물](https://nuung.github.io/all-about-javascript/Theme/NavBar/index.html)
-- Shopping Mini Game
+- NavBar Theme : [코드](https://github.com/Nuung/all-about-javascript/blob/main/Theme/NavBar) / [실물](https://nuung.github.io/all-about-javascript/Theme/NavBar/index.html)
+- Shopping Mini Game : [코드](https://github.com/Nuung/all-about-javascript/blob/main/ShoppingGame) / [실물](https://nuung.github.io/all-about-javascript/ShoppingGame/)
 
-#### 2) [Full Stack AirBnB clone](https://www.youtube.com/watch?v=kuswGIH-Xj8&list=PLN3n1USn4xlnfJIQBa6bBjjiECnk6zL6s)
+#### 2) [NodeJS SocketIO]
+
+- Vanilla JS + NodeJS & Socket.IO 활용, [nodeJS 실시간 서비스, Zoom clone coding](https://github.com/Nuung/all-about-javascript#4-nodejs-%EC%8B%A4%EC%8B%9C%EA%B0%84-%EC%84%9C%EB%B9%84%EC%8A%A4-zoom-clone-coding) 도 참조
+- [코드 보러 가기](https://github.com/Nuung/all-about-javascript/blob/main/NodeSocket)
+- [실물 보러 가기](https://nuung.github.io/all-about-javascript/NodeSocket/)
+
+#### 3) [Full Stack AirBnB clone](https://www.youtube.com/watch?v=kuswGIH-Xj8&list=PLN3n1USn4xlnfJIQBa6bBjjiECnk6zL6s)
 
 ---
 
@@ -57,27 +63,27 @@
 
 - [노마드 유투브](https://youtu.be/V08wXKHF_Xw)
 - CSS 적인 요소가 더 크긴함! 뭐 굳이 핵심 JS 포인트는 classList / add / remove
-- [코드 보러 가기](https://github.com/Nuung/all-about-javascript/blob/master/Theme/Modal/modal.html)
+- [코드 보러 가기](https://github.com/Nuung/all-about-javascript/blob/main/Theme/Modal/modal.html)
 - [실물 보러 가기](https://nuung.github.io/all-about-javascript/Theme/Modal/modal.html)
 
 #### 4) nodeJS 실시간 서비스, Zoom clone coding
 
 - [줌 클론코딩](https://nomadcoders.co/noom/lobby)
 - WebSockets, SocketIO, WebRTC
-- [코드 보러 가기](https://github.com/Nuung/all-about-javascript/tree/master/NomadJS-Zoom)
+- [코드 보러 가기](https://github.com/Nuung/all-about-javascript/tree/main/NomadJS-Zoom)
 
 #### 5) 바닐라JS Simple Snow screen
 
 - [노마드 유투브](https://youtu.be/3CuUmy7jX6k)
 - CSS animation과 순수 js로 DOM 만들어서 attribute setting
-- [코드 보러 가기](https://github.com/Nuung/all-about-javascript/tree/master/NomadJS-snow-screen)
+- [코드 보러 가기](https://github.com/Nuung/all-about-javascript/tree/main/NomadJS-snow-screen)
 - [실물 보러 가기](https://nuung.github.io/all-about-javascript/NomadJS-snow-screen/index.html)
 
 #### 6) Twitter clone coding
 
 - [노마드 유투브](https://nomadcoders.co/nwitter)
 - Vite를 통한 ReactJS 프로젝트, **Firebase 가 핵심 (auth, db, storage)**
-- [코드 보러 가기](https://github.com/Nuung/all-about-javascript/tree/master/NomadJS-twitter)
+- [코드 보러 가기](https://github.com/Nuung/all-about-javascript/tree/main/NomadJS-twitter)
 - [실물 보러 가기](https://nomadjs-tweet.web.app/) - 실제 firebase 를 통해 deploy & hosting 한 상태, 무료 티어
 
 ## 3. Functional Javascript ES6+
@@ -85,7 +91,7 @@
 #### 1) 절차, 객체 넘어 함수 지향 코딩 스타일, [함수형 자바스크립트](https://mangkyu.tistory.com/111)
 
 - 인프런, [함수형 프로그래밍과 JS, ES6+](https://www.inflearn.com/course/functional-es6/dashboard)
-- [코드 보러 가기](https://github.com/Nuung/all-about-javascript/tree/master/Functional-Javascript)
+- [코드 보러 가기](https://github.com/Nuung/all-about-javascript/tree/main/Functional-Javascript)
 
 ## 4. Typescript
 
