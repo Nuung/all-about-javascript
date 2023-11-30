@@ -21,6 +21,8 @@
 - `node`의 `ws`모듈 기반으로 웹소켓을 통한 그림판 실시간으로 데이터 공유하기
 - 완벽한 CRDT의 컨셉이라 보기엔 어렵다. **`merge`** 와 **중복방지** 부분은 강화할 필요가 있다.
 
+#### 3) [Simple Flip](https://nuung.github.io/all-about-javascript/Theme/Flip/)
+
 ### [ ES6 공부 및 기초부터 고급까지 바닐라 자바스크립트 실습 기반 연습 아카이브 ]
 
 #### 1) [유투브, 엘리](https://www.youtube.com/watch?v=wcsVjmHrUQg&list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2)
@@ -58,7 +60,7 @@
 - [코드 보러 가기](https://github.com/Nuung/all-about-javascript/blob/master/Theme/Modal/modal.html)
 - [실물 보러 가기](https://nuung.github.io/all-about-javascript/Theme/Modal/modal.html)
 
-#### 4) node.Js 실시간 서비스, Zoom clone coding
+#### 4) nodeJS 실시간 서비스, Zoom clone coding
 
 - [줌 클론코딩](https://nomadcoders.co/noom/lobby)
 - WebSockets, SocketIO, WebRTC

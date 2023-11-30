@@ -1,0 +1,52 @@
+.wrapper {
+    width: 200px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
+    perspective: 1000px;
+}
+
+.wrapper:hover .card {
+    transform: rotateY(180deg);
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: all 0.5s;
+    perspective-origin: center;
+    transform-style: preserve-3d;
+    color: white;
+    font-size: 30px;
+}
+
+.front {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    position: absolute;
+    backface-visibility: hidden;
+    background-color: violet;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transform: rotateY(180deg);
+    background-color: skyblue;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
