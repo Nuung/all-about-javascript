@@ -1,7 +1,7 @@
 'use strict';
 
 function loadItems() {
-    return fetch('https://raw.githubusercontent.com/Nuung/all-about-javascript/master/ShoppingGame/data/data.json')
+    return fetch('https://raw.githubusercontent.com/Nuung/all-about-javascript/main/ShoppingGame/data/data.json')
         .then(response => response.json())
         .then(json => json.items);
 }
