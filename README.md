@@ -86,6 +86,12 @@
 - [코드 보러 가기](https://github.com/Nuung/all-about-javascript/tree/main/NomadJS-twitter)
 - [실물 보러 가기](https://nomadjs-tweet.web.app/) - 실제 firebase 를 통해 deploy & hosting 한 상태, 무료 티어
 
+#### 7) Gymshot (Recat + Firebase)
+
+- workout 인증 사진만 업로드 가능한 운동 인증 insta web application
+- Vite를 통한 ReactJS 프로젝트 + **Firebase 가 핵심 (auth, db, storage)**
+- [실물 보러 가기](...) - 실제 firebase 를 통해 deploy & hosting 한 상태, 무료 티어
+
 ## 3. Functional Javascript ES6+
 
 #### 1) 절차, 객체 넘어 함수 지향 코딩 스타일, [함수형 자바스크립트](https://mangkyu.tistory.com/111)
