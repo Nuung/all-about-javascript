@@ -1,0 +1,79 @@
+@font-face {
+    font-family: "Mingyung";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_08@1.0/Mingyung.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    background-color: #A03339;
+    font-family: "Mingyung";
+}
+
+.snowflake {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: -8px;
+    animation: fall 10s linear;
+}
+
+@keyframes fall {
+    from {}
+
+    to {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-weight: 100;
+    font-size: 1.8rem;
+}
+
+h1 span {
+    font-weight: 900;
+    font-size: 2.1rem;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+div img {
+    width: 90%;
+    margin: 10px;
+}
+
+div a {
+    font-size: 2rem;
+    color: white;
+    outline-style: none;
+    text-decoration: none;
+}
+
+div a span {
+    font-size: 1rem;
+}
+
+div img:last-child {
+    width: 50%;
+}
+
+@media (min-width: 800px) {
+    div img {
+        width: 40%;
+    }
+
+    div img:last-child {
+        width: 25%;
+    }
+}
