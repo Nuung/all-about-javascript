@@ -12,16 +12,23 @@
 
 ## 1. Simple Vanilla JS Projects Based on ES5+ (ES6)
 
-### [ 여러가지 컨셉의 컴포넌트, 테마, 오브젝트들 ]
+### [ 여러가지 컨셉의 컴포넌트, 테마, 오브젝트들, 클릭해서 실물 바로 확인 ]
 
 #### 1) [Drag and Drop](https://nuung.github.io/all-about-javascript/Theme/DragAndDrop/)
 
-#### 2) Frontend에서 CRDT(Conflict-free Replicated Data Type)
+#### 2) Frontend에서 [CRDT(Conflict-free Replicated Data Type)](https://nuung.github.io/all-about-javascript/CRDT/)
 
 - `node`의 `ws`모듈 기반으로 웹소켓을 통한 그림판 실시간으로 데이터 공유하기
 - 완벽한 CRDT의 컨셉이라 보기엔 어렵다. **`merge`** 와 **중복방지** 부분은 강화할 필요가 있다.
 
 #### 3) [Simple Flip](https://nuung.github.io/all-about-javascript/Theme/Flip/)
+
+- 바닐라JS + CSS 로 **_Flip_** 효과 만들기
+
+#### 4) [Simple Flip Counter](https://nuung.github.io/all-about-javascript/Theme/FlipCounter/)
+
+- 바닐라JS + CSS 로 **_Flip Counter_** 만들기
+- 이벤트 페이지 등에서 꽤 높은 활용도를 보일듯 합니다!
 
 ### [ ES6 공부 및 기초부터 고급까지 바닐라 자바스크립트 실습 기반 연습 아카이브 ]
 
@@ -99,6 +106,8 @@
 - 인프런, [함수형 프로그래밍과 JS, ES6+](https://www.inflearn.com/course/functional-es6/dashboard)
 - [코드 보러 가기](https://github.com/Nuung/all-about-javascript/tree/main/Functional-Javascript)
 
+---
+
 ## 4. Typescript
 
 - js의 최대 장점이자 단점인 유연성을 훨씬 규칙적으로 단단하게 해줄 'type'스크립트
@@ -108,7 +117,3 @@
 ## DevLogs
 
 - https://velog.io/@qlgks1
-
-## ETC
-
-- [How To Use Shield in GitHub](https://youtu.be/Dl-ekLb4quE)

@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
 
 import { auth } from "../firebase";
-import { Form, Wrapper, Title, Input, Switcher, Error } from "../components/authComponents";
+import { Form, Wrapper, Title, SubTitle, Input, Switcher, Error } from "../components/authComponents";
 import GithubButton from "../components/githubButton";
 
 
@@ -59,7 +59,8 @@ export default function SingUp() {
 
   return (
     <Wrapper>
-      <Title>Sign-Up to GYMSHOT</Title>
+      <Title>Sign-Up to</Title>
+      <SubTitle>GYMSHOT</SubTitle>
       <Form onSubmit={onSubmit}>
         <Input name="name" value={name} placeholder="Name" type="text" required onChange={onChange} />
         <Input name="email" value={email} placeholder="Email" type="email" required onChange={onChange} />
