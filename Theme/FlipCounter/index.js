@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
     setInterval(secondPlay, 1000);
     setInterval(minutePlay, 10000);
 });

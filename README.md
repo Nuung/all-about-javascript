@@ -30,6 +30,11 @@
 - 바닐라JS + CSS 로 **_Flip Counter_** 만들기
 - 이벤트 페이지 등에서 꽤 높은 활용도를 보일듯 합니다!
 
+#### 5) [Simple Theme Toggle](https://nuung.github.io/all-about-javascript/Theme/ThemeToggle/)
+
+- 바닐라JS + CSS 로 **_전체 Theme Toggle_** 만들기
+- CSS에서 OS기본 theme를 `prefers-color-scheme` 로 가져와서 js로 control가능
+
 ### [ ES6 공부 및 기초부터 고급까지 바닐라 자바스크립트 실습 기반 연습 아카이브 ]
 
 #### 1) [유투브, 엘리](https://www.youtube.com/watch?v=wcsVjmHrUQg&list=PLv2d7VI9OotTVOL4QmPfvJWPJvkmv6h-2)
