@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EGJS flicking test</title>
+    <link rel="stylesheet" href="./index.css" />
+    <!-- EGJS flicking CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/egjs-flicking/4.11.2/flicking.css"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/egjs-flicking/4.11.2/flicking.pkgd.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!----------------------------------------------------->
+    <!-- Flick Default -->
+    <!----------------------------------------------------->
+    <!-- Viewport element -->
+    <h1>Flick Default - Panel add / remove</h1>
+    <div id="flick" class="flicking-viewport">
+      <!-- Camera element -->
+      <div class="flicking-camera">
+        <!-- Panels, class names are your choice -->
+        <div class="flicking-panel">1</div>
+        <div class="flicking-panel">2</div>
+        <div class="flicking-panel">3</div>
+        <div class="flicking-panel">4</div>
+        <div class="flicking-panel">5</div>
+      </div>
+    </div>
+    <div class="block is-flex is-justify-content-center">
+      <button id="btn-prepend" class="button mr-2 is-info is-outlined">
+        Prepend
+      </button>
+      <button id="btn-append" class="button mr-2 is-info is-outlined">
+        Append
+      </button>
+    </div>
+
+    <hr />
+
+    <!----------------------------------------------------->
+    <!-- Nested Flickings -->
+    <!----------------------------------------------------->
+    <h1>Nested Flickings</h1>
+    <div id="flick1" class="flicking-viewport">
+      <div class="flicking-camera">
+        <div class="flicking-panel">1</div>
+        <div class="flicking-panel nested-wide">
+          <div id="flick2" class="flicking-viewport">
+            <div class="flicking-camera">
+              <div class="flicking-panel">2.1</div>
+              <div class="flicking-panel">2.2</div>
+              <div class="flicking-panel">2.3</div>
+            </div>
+          </div>
+        </div>
+        <div class="flicking-panel nested-wide vertical">
+          <div id="flick3" class="flicking-viewport vertical">
+            <div class="flicking-camera">
+              <div class="flicking-panel">3.1</div>
+              <div class="flicking-panel">3.2</div>
+              <div class="flicking-panel">3.3</div>
+            </div>
+          </div>
+        </div>
+        <div class="flicking-panel">4</div>
+        <div class="flicking-panel">5</div>
+      </div>
+    </div>
+
+    <hr />
+
+    <!----------------------------------------------------->
+    <!-- Simple Vertical Flickings -->
+    <!----------------------------------------------------->
+    <h1>Simple Vertical Flickings</h1>
+    <!-- Sum of panel sizes - panel size >= viewport size -->
+    <div id="flick4" class="flicking-viewport vertical">
+      <div class="flicking-camera">
+        <div class="flicking-panel">One</div>
+        <div class="flicking-panel">Two</div>
+        <div class="flicking-panel">Three</div>
+        <div class="flicking-panel">Four</div>
+        <div class="flicking-panel">Five</div>
+        <div class="flicking-panel">Six</div>
+      </div>
+    </div>
+  </body>
+  <script>
+    // ====================================================== //
+    // Flick Default - Panel add / remove
+    // ====================================================== //
+    const flicking = new Flicking("#flick", {
+      renderOnlyVisible: true,
+      // circular: true,
+      // moveType: "freeScroll",
+      // bound: true,
+    });
+    let minIdx = 1;
+    let maxIdx = 5;
+
+    const prependBtn = document.querySelector("#btn-prepend");
+    const appendBtn = document.querySelector("#btn-append");
+
+    prependBtn.addEventListener("click", () => {
+      flicking.prepend(`<div class="flicking-panel">${--minIdx}</div>`);
+    });
+    appendBtn.addEventListener("click", () => {
+      flicking.append(`<div class="flicking-panel">${++maxIdx}</div>`);
+    });
+
+    // ====================================================== //
+    // Nested Flickings
+    // ====================================================== //
+    const flicking1 = new Flicking("#flick1");
+    const flicking2 = new Flicking("#flick2", {
+      bounce: 0,
+      bound: true,
+      nested: true,
+    });
+    const flicking3 = new Flicking("#flick3", {
+      bounce: 0,
+      // bound: true,
+      nested: true,
+      horizontal: false,
+    });
+
+    // ====================================================== //
+    // Simple Vertical Flickings
+    // ====================================================== //
+    const flicking4 = new Flicking("#flick4", {
+      circular: true,
+      horizontal: false,
+    });
+
+    // Simple AutoPlay function
+    setInterval(function () {
+      flicking4.next().catch(() => {}); // Ignore errors
+    }, 2000); // Change slide every 2 seconds
+  </script>
+</html>

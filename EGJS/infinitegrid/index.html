@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EGJS infinitegrid test</title>
+    <!-- EGJS infinitegrid CDN -->
+    <script src="https://unpkg.com/@egjs/infinitegrid/dist/infinitegrid.min.js"></script>
+    <style>
+      body {
+        background: rgb(36, 37, 38);
+      }
+      .container {
+        margin: 50px;
+      }
+      .item {
+        width: 250px;
+      }
+      .item img {
+        width: 100%;
+      }
+      .info {
+        color: white;
+      }
+      .placeholder {
+        background-color: white;
+        color: white;
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+  </body>
+  <script>
+    function getItems(nextGroupKey, count) {
+      const nextItems = [];
+
+      for (let i = 0; i < count; ++i) {
+        const num = nextGroupKey * count + i;
+        nextItems.push(`
+          <div class="item">
+            <div class="thumbnail">
+              <img src="https://naver.github.io/egjs-infinitegrid/assets/image/${
+                (num % 33) + 1
+              }.jpg" alt="egjs" />
+            </div>
+            <div class="info">egjs ${num}</div>
+          </div>
+        `);
+      }
+      return nextItems;
+    }
+
+    const ig = new InfiniteGrid.MasonryInfiniteGrid(".container", {
+      gap: 5,
+    });
+
+    ig.setPlaceholder({
+      html: `<div class="placeholder" style="background: white;"></div>`,
+    });
+
+    ig.on("requestAppend", (e) => {
+      const nextGroupKey = (+e.groupKey || 0) + 1;
+
+      e.wait();
+      e.currentTarget.appendPlaceholders(5, nextGroupKey);
+      setTimeout(() => {
+        e.ready();
+        ig.append(getItems(nextGroupKey, 10), nextGroupKey);
+      }, 1000);
+    });
+    ig.renderItems();
+  </script>
+</html>
