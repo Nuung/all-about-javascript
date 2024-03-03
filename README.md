@@ -35,19 +35,15 @@
 - 바닐라JS + CSS 로 **_전체 Theme Toggle_** 만들기
 - CSS에서 OS기본 theme를 `prefers-color-scheme` 로 가져와서 js로 control가능
 
-
 #### 6) [egjs - Flicking](https://nuung.github.io/all-about-javascript/EGJS/flicking/)
 
 - naver official library egjs, flicking library 활용
 - [활용에 대한 기록 - velog](https://velog.io/@qlgks1/javascript-naver-%EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4-egjs-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0-flicking-infinitegrid)
 
-
 #### 7) [egjs - Infinitegrid](https://nuung.github.io/all-about-javascript/EGJS/infinitegrid/)
 
 - naver official library egjs, infinitegrid library 활용
 - [활용에 대한 기록 - velog](https://velog.io/@qlgks1/javascript-naver-%EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4-egjs-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0-flicking-infinitegrid)
-
-
 
 ### [ ES6 공부 및 기초부터 고급까지 바닐라 자바스크립트 실습 기반 연습 아카이브 ]
 
@@ -63,7 +59,13 @@
 - [코드 보러 가기](https://github.com/Nuung/all-about-javascript/blob/main/NodeSocket)
 - [실물 보러 가기](https://nuung.github.io/all-about-javascript/NodeSocket/)
 
-#### 3) [Full Stack AirBnB clone](https://www.youtube.com/watch?v=kuswGIH-Xj8&list=PLN3n1USn4xlnfJIQBa6bBjjiECnk6zL6s)
+#### 3) Web Component 활용하기
+
+- `Web Component` & `Shadow Dom` 을 활용한 HTML custom tag 만들기
+- [velog 글 부터 참조]()
+- [코드 보러 가기](https://github.com/Nuung/all-about-javascript/blob/main/WebComponents)
+
+#### 4) [Full Stack AirBnB clone](https://www.youtube.com/watch?v=kuswGIH-Xj8&list=PLN3n1USn4xlnfJIQBa6bBjjiECnk6zL6s)
 
 ---
 

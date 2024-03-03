@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HTML CUSTOM 하기</h1>
+
+    <!-- <div>
+      <label for="nameInput">이름 입력하세요!</label>
+      <input type="text" id="nameInput" />
+    </div> -->
+    <div>
+      <label-input input-name="이름" input-id="nameInput"></label-input>
+      <label-input input-name="나이" input-id="ageInput"></label-input>
+      <label-input input-name="닉네임" input-id="nicknameInput"></label-input>
+      <label-input input-name="이것" input-id="thisInput"></label-input>
+      <label-input input-name="저것" input-id="thatInput"></label-input>
+      <button id="changeBtn">바꿔보기</button>
+    </div>
+
+    <!-- <input type="range" />
+
+    <video controls width="250">
+      <source
+        src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+        type="video/webm"
+      />
+      <source
+        src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+        type="video/mp4"
+      />
+    </video> -->
+
+    <custom-btn></custom-btn>
+    <script src="./index.js"></script>
+  </body>
+</html>
