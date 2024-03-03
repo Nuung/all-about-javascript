@@ -62,7 +62,7 @@
 #### 3) Web Component 활용하기
 
 - `Web Component` & `Shadow Dom` 을 활용한 HTML custom tag 만들기
-- [velog 글 부터 참조]()
+- [velog 글 부터 참조](https://velog.io/@qlgks1/javascript-%EB%82%98%EB%A7%8C%EC%9D%98-HTML-tag-%EB%A7%8C%EB%93%A4%EC%96%B4%EC%84%9C-%EB%B0%B0%ED%8F%AC%ED%95%98%EA%B8%B0#html-customization)
 - [코드 보러 가기](https://github.com/Nuung/all-about-javascript/blob/main/WebComponents)
 
 #### 4) [Full Stack AirBnB clone](https://www.youtube.com/watch?v=kuswGIH-Xj8&list=PLN3n1USn4xlnfJIQBa6bBjjiECnk6zL6s)
